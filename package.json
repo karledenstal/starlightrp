@@ -1,0 +1,32 @@
+{
+  "name": "starlight",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel src/pages/*.html",
+    "serve": "parcel serve src/pages/index.html",
+    "build": "parcel build src/pages/*.html src/styles/jcink.scss src/styles/main.scss && npm run build:particles",
+    "build:particles": "esbuild src/scripts/particles.js --bundle --minify --format=iife --outfile=dist/tsparticles.js",
+    "build:css": "parcel build src/styles/jcink.scss src/styles/main.scss",
+    "clean": "rm -rf .parcel-cache dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "autoprefixer": "^10.6.1",
+    "esbuild": "^0.28.2",
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.28",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-expressions": "^1.11.4",
+    "posthtml-include": "^2.0.1",
+    "sass": "^1.105.0"
+  },
+  "dependencies": {
+    "@tsparticles/engine": "^4.4.0",
+    "@tsparticles/slim": "^4.4.0"
+  }
+}
