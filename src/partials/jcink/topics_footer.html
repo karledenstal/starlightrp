@@ -1,0 +1,180 @@
+<div class="darkrow2" style="padding: 6px">
+  1 User(s) are browsing this forum (0 Guests and 0 Anonymous Users)
+</div>
+<div class="row2" style="padding: 6px">
+  1 Members:
+  <a href="https://starlight.jcink.net/index.php?showuser=1">Ghosty</a>
+</div>
+<form
+  action="https://starlight.jcink.net/index.php?act=SF&amp;f=3&amp;st="
+  method="post"
+>
+  <div align="center" class="darkrow2" style="padding: 4px">
+    Showing 0 of 0 topics sorted by
+    <select name="sort_key" class="forminput">
+      <option value="last_post" selected="selected">last post date</option>
+      <option value="title">topic title</option>
+      <option value="starter_name">topic starter</option>
+      <option value="posts">number of replies</option>
+      <option value="views">number of views</option>
+      <option value="start_date">topic start date</option>
+      <option value="last_poster_name">last poster</option>
+    </select>
+    in
+    <select name="sort_by" class="forminput">
+      <option value="Z-A" selected="selected">descending order</option>
+      <option value="A-Z">ascending order</option>
+    </select>
+    from
+    <select name="prune_day" class="forminput">
+      <option value="1">today</option>
+      <option value="5">the last 5 days</option>
+      <option value="7">the last week</option>
+      <option value="10">the last 10 days</option>
+      <option value="15">the last 15 days</option>
+      <option value="20">the last 20 days</option>
+      <option value="25">the last 25 days</option>
+      <option value="30">the last 30 days</option>
+      <option value="60">the last 60 days</option>
+      <option value="90">the last 90 days</option>
+      <option value="100" selected="selected">the beginning</option></select
+    >&nbsp;<input type="submit" value="Go!" class="forminput" />
+  </div>
+</form>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr>
+      <td align="left" width="20%" nowrap="nowrap">
+        <span class="pagination">&nbsp;</span>
+      </td>
+      <td align="right" width="80%">
+        <a
+          href="https://starlight.jcink.net/index.php?act=Post&amp;CODE=00&amp;f=3"
+          ><div class="button-large">New Topic</div></a
+        ><a
+          href="https://starlight.jcink.net/index.php?act=Post&amp;CODE=10&amp;f=3"
+          ><div class="button-large">New Poll</div></a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div align="right">
+  <form
+    action="https://starlight.jcink.net/index.php?"
+    method="post"
+    name="search"
+    id="search-this-forum"
+  >
+    <input type="hidden" name="forums[]" value="3" />
+    <input type="hidden" name="cat_forum" value="forum" />
+    <input type="hidden" name="act" value="Search" />
+    <input type="hidden" name="joinname" value="1" />
+    <input type="hidden" name="CODE" value="01" />
+    <input
+      type="text"
+      size="30"
+      name="keywords"
+      class="forminput"
+      placeholder="Search this forum"
+      onfocus="this.value = ''"
+    /><input type="submit" value="Go" class="forminput" />
+  </form>
+
+  <br />
+  <br />
+  <select
+    class="forminput"
+    name="mod_options"
+    id="mod_options"
+    onchange="document.getElementById('tact').value = this.value"
+  >
+    <option value="-1">---------------------------------</option>
+    <option value="-1" selected="selected">» Topic Moderation Options «</option>
+    <option value="-1">---------------------------------</option>
+
+    <option value="close">Close Topics</option>
+    <option value="open">Open Topics</option>
+    <option value="pin">Pin Topics</option>
+    <option value="unpin">Unpin Topics</option>
+    <option value="move">Move Topics</option>
+    <option value="delete">Delete Topics</option>
+  </select>
+  <input
+    name="submit_modaction"
+    type="button"
+    id="mod_topics_submit"
+    class="forminput"
+    onclick="document.forms['mod_topics'].submit()"
+    value="With Selected (0)"
+  />
+  <input
+    name="select_all_submit"
+    type="button"
+    class="forminput"
+    onclick="select_all()"
+    value="Select All"
+  />
+
+  <br /><br />
+
+  <form
+    onsubmit="
+      if (document.jumpmenu.f.value == -1) {
+        return false;
+      }
+    "
+    action="https://starlight.jcink.net/index.php?act=SF"
+    method="get"
+    name="jumpmenu"
+  >
+    <input type="hidden" name="act" value="SF" />
+    <input type="hidden" name="s" value="" />
+    <select
+      name="f"
+      onchange="
+        if (this.options[this.selectedIndex].value != -1) {
+          document.jumpmenu.submit();
+        }
+      "
+      class="forminput"
+    >
+      <optgroup label="Site Jump">
+        <option value="sj_home">Forum Home</option>
+        <option value="sj_search">Search</option>
+        <option value="sj_help">Help</option>
+      </optgroup>
+      <optgroup label="Forum Jump">
+        <option value="-1">New Bergen</option>
+        <option value="3" selected="selected">
+          &nbsp;&nbsp;- Grand Central
+        </option>
+        <!--fx:3-->
+        <option value="4">&nbsp;&nbsp;- Sierra</option>
+        <!--fx:4-->
+        <option value="5">&nbsp;&nbsp;- Eden</option>
+        <!--fx:5-->
+        <option value="6">&nbsp;&nbsp;- Little Scandinavia</option>
+        <!--fx:6-->
+        <option value="7">&nbsp;&nbsp;- Erstwhile</option>
+        <!--fx:7-->
+        <option value="12">&nbsp;&nbsp;- The Fringes</option>
+        <!--fx:12-->
+        <option value="-1">STR-L18 // Starlight</option>
+        <option value="1">&nbsp;&nbsp;- SAGE District</option>
+        <!--fx:1-->
+        <option value="8">&nbsp;&nbsp;- Commercial District</option>
+        <!--fx:8-->
+        <option value="9">&nbsp;&nbsp;- Residential District</option>
+        <!--fx:9-->
+        <option value="10">&nbsp;&nbsp;- The Mere</option>
+        <!--fx:10-->
+        <option value="11">&nbsp;&nbsp;- Space Port</option>
+        <!--fx:11-->
+        <option value="-1">Trashcan</option>
+        <option value="2">&nbsp;&nbsp;- Trash Can</option>
+        <!--fx:2-->
+      </optgroup></select
+    >&nbsp;<input type="submit" value="Go" class="forminput" />
+  </form>
+</div>

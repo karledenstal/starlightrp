@@ -1,0 +1,133 @@
+.str-topic {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #000;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+  background: linear-gradient(to bottom right, rgb(var(--groupr-main) / 0.2), rgb(var(--groupr-accent) / 0.2));
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  box-shadow:
+    /* outside depth */
+    0 8px 24px rgb(0 0 0 / 0.15),
+
+    /* bright upper/left inner edge */
+    inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+    /* darker lower/right inner edge */
+    inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+  .topic-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .meta-info {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      .topic-type {
+        color: #999;
+      }
+
+      .topic-counts {
+        display: flex;
+        gap: 0.5rem;
+
+        x {
+          color: var(--groupc-main);
+        }
+
+        .topic-replies {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          &::after {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: #666;
+          }
+        }
+      }
+    }
+  }
+
+  .topic-title-wrapper {
+    border-radius: 1rem;
+    border: 1px solid #000;
+    backdrop-filter: blur(4px);
+    padding: 1.25rem;
+    background: rgb(0 0 0 / .4);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(var(--rgb-dark) / 0.05),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(var(--rgb-light) / 0.15),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(var(--rgb-dark) / 0.05);
+
+    .topictt {
+      font-size: 24px;
+      font-style: italic;
+      font-family: var(--font-heading);
+      text-transform: lowercase;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+
+    .topic-dd {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 10px;
+      color: #999;
+    }
+  }
+
+  .topic-authors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+
+    .date {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      &::after {
+        content: "";
+        width: 35px;
+        background: #666;
+        height: 1px;
+      }
+    }
+
+    .topic-starter,
+    .topic-poster {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .author {
+        color: var(--groupc-main);
+      }
+    }
+  }
+}
