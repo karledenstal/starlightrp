@@ -1,0 +1,151 @@
+<div class="strlite-post g{{ gid }}">
+  <div class="miniprofile">
+    <div class="author">
+      <span id="gameId">author</span>
+      <a href="profile.html">arden st.clair-moreau</a>
+    </div>
+    <div class="avatar">
+      <img
+        src="https://i.pinimg.com/736x/09/82/e2/0982e28980c78a0a080a5340fbe88c9b.jpg"
+      />
+      <div class="overlay">
+        <div class="bg">
+          <div class="overlay-content">
+            <div class="overlay-data">
+              <div class="overlay-gif">
+                <img
+                  src="https://64.media.tumblr.com/4afbf372b634acd3f70cbb467d64d45a/ccb5c059a8306e21-bb/s540x810/f462e97ac31fa017d57e58701ab305534ef018af.gifv"
+                />
+              </div>
+              <div class="overlay-info">
+                <span class="label">played by</span>
+                <span class="value">ghosty</span>
+              </div>
+              <div class="overlay-info">
+                <span class="label">posts</span>
+                <span class="value">581</span>
+              </div>
+              <div class="overlay-info">
+                <span class="label">Rated M?</span>
+                <span class="value">Ask first</span>
+              </div>
+              <div class="overlay-info">
+                <span class="label">playby</span>
+                <span class="value">Hunter Schafer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="group"></span>
+    <div class="gif-wrapper">
+      <img
+        src="https://64.media.tumblr.com/07ddb4598c49ec3997f6240425d31c1c/b6fbfb9d38209845-cf/s540x810/8aec44bde6ca1d23712cf435cca067070b820348.gifv"
+      />
+    </div>
+    <div class="row vertical">
+      <span class="label">occupation</span>
+      <span class="value">
+        <x>pilot, smuggler, know-it-all</x>
+      </span>
+    </div>
+    <div class="reldata">
+      <div class="images">
+        <div class="relimg-wrapper">
+          <img
+            src="https://64.media.tumblr.com/e5408e71203b9e4c051aa9a1ee5695d2/ccb5c059a8306e21-1c/s540x810/b6f94dc743379ea981c3921abfba75cef5419583.gifv"
+          />
+        </div>
+        <div class="relimg-wrapper">
+          <img
+            src="https://64.media.tumblr.com/5e62fe7669c4e45bfc4ef5bed0aab905/711d883be28c5880-93/s400x600/0fd43c9bcda7c4527409aa1475eda3213ccb5bc3.gifv"
+          />
+        </div>
+      </div>
+      <div class="rel-info">
+        <span class="rel-status">partner in crime</span>
+        <span class="rel-partner">cassian caine</span>
+      </div>
+    </div>
+    <div class="row just">
+      <span class="label">bisexual</span>
+      <span class="sep"></span>
+      <span class="value">biromantic</span>
+    </div>
+    <div class="gif-wrapper">
+      <img
+        src="https://64.media.tumblr.com/b2620f061d38f2783884a4241aeb7eae/b6fbfb9d38209845-80/s540x810/67c3db880a7b989bdd2ddff92f8ed1d9364904e4.gifv"
+      />
+    </div>
+    <div class="character-data">
+      <div class="row">
+        <span class="label">known as</span>
+        <span class="sep"></span>
+        <span class="value">
+          <x>arden</x>
+        </span>
+      </div>
+      <div class="row">
+        <span class="label">age</span>
+        <span class="sep"></span>
+        <span class="value">
+          <x>28</x>
+        </span>
+      </div>
+      <div class="row">
+        <span class="label">pronouns</span>
+        <span class="sep"></span>
+        <span class="value">
+          <x>she/her</x>
+        </span>
+      </div>
+      <div class="row">
+        <span class="label">affiliation</span>
+        <span class="sep"></span>
+        <span class="value">
+          <x>independent</x>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="post-area">
+    <div class="post-meta">
+      <a href="#" class="post-date">Oct 2 2026, 05:56 AM</a>
+      <div class="post-controls">
+        <a href="#">Edit</a>
+        <a href="#">Quote</a>
+        <a href="#">Delete</a>
+        <input type="checkbox" />
+      </div>
+    </div>
+    <div class="post-content">lol</div>
+  </div>
+</div>
+
+<script>
+  const authorId = Number("4");
+  const groupId = Number("6");
+  const nbg_groups = [8, 10, 11];
+
+  function getGroupPrefix(gid) {
+    if (gid === 6) {
+      return "7B";
+    }
+
+    if (gid === 7) {
+      return "22N";
+    }
+
+    if (gid === 9) {
+      return "STR";
+    }
+
+    return "NBG";
+  }
+
+  const g_prefix = getGroupPrefix(groupId);
+  const character_id = g_prefix + "-" + String(authorId).padStart(3, "0");
+
+  $("#gameId").text(character_id);
+</script>

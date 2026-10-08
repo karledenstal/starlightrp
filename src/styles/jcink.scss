@@ -15,7 +15,8 @@ form {
 }
 
 #userlinks+br,
-.SF table+br {
+.SF table+br,
+.ST table+br {
   display: none;
 }
 
@@ -73,9 +74,16 @@ form {
    Topic View styles
 *****************************************/
 
-.activeuserstrip {}
+.activeuserstrip {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-.postlinksbar {}
+.postlinksbar {
+  display: none;
+}
 
 /*******************************
  Pagination e.g. [1],2,3 ...
@@ -165,7 +173,35 @@ td.darkrow2 {
    Top table bars / gradient holders 
 *****************************************/
 
-.maintitle {}
+.maintitle {
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+.topic-title {
+  color: var(--color-accent1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &::after {
+    content: "";
+    margin-right: 1rem;
+    width: 35px;
+    height: 1px;
+    background: var(--color-dark);
+  }
+}
+
+.topic-desc {
+  color: #666;
+}
+
+.topic-title-space {
+  display: none;
+}
 
 /****************************************
   Bar directly below the maintitles 
@@ -202,6 +238,7 @@ td.darkrow2 {
 
 .button-large {
   min-width: 75px;
+  margin-left: 0.5rem;
   display: inline-flex;
   border-radius: 8px;
   background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-accent3) / 0.2));
