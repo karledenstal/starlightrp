@@ -58,6 +58,10 @@ img[src=""] {
 
 .idx .floaty-mcfloat {
   margin-top: 2rem;
+
+  .refresh-recent {
+    display: none;
+  }
 }
 
 .floaty-mcfloat {
@@ -97,6 +101,22 @@ img[src=""] {
         width: 35px;
         height: 1px;
         background-color: var(--color-dark);
+      }
+    }
+
+    .refresh-recent {
+      margin-left: auto;
+      background: transparent;
+      border: transparent;
+      font-family: "DejaVu Sans", "Segoe UI Symbol", sans-serif;
+      color: var(--color-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      cursor: pointer;
+
+      .is-refreshing {
+        animation: spin 1s linear infinite;
       }
     }
 
@@ -860,10 +880,6 @@ img[src=""] {
               text-transform: uppercase;
               letter-spacing: 1px;
 
-              &.rts {
-                display: none;
-              }
-
               .ttle {
                 x {
                   color: var(--color-accent1);
@@ -930,5 +946,11 @@ img[src=""] {
 @keyframes orbit-scroll {
   to {
     transform: translateX(calc(-50% - (1rem / 2)));
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }

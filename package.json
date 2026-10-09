@@ -8,12 +8,13 @@
     "build": "parcel build src/pages/*.html src/styles/jcink.scss src/styles/main.scss && npm run build:particles",
     "build:particles": "esbuild src/scripts/particles.js --bundle --minify --format=iife --outfile=dist/tsparticles.js",
     "build:css": "parcel build src/styles/jcink.scss src/styles/main.scss",
-    "clean": "rm -rf .parcel-cache dist"
+    "clean": "rm -rf .parcel-cache dist",
+    "generate:fields": "node ./src/scripts/generate_fields.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.4",
     "autoprefixer": "^10.6.1",
