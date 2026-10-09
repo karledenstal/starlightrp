@@ -913,6 +913,46 @@ img[src=""] {
   }
 }
 
+.markdown-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+
+  .markdown-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    .md-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--color-dark);
+    }
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    letter-spacing: 1px;
+    color: inherit;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      background: rgb(0 0 0 / 0.2);
+      border: 1px solid rgb(var(--rgb-dark) / 0.4);
+      border-radius: 0.5rem;
+    }
+  }
+
+}
+
 @keyframes glow-flicker {
 
   0%,

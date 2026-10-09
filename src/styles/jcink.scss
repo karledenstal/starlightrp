@@ -20,12 +20,23 @@ form {
 #field-birthday,
 #field-website,
 #field-location,
-#field-interests {
+#field-interests,
+#recent-topics+br {
   display: none;
 }
 
 #redirect-screen {
   background-color: #110c22;
+}
+
+.ST {
+  a[name="top"] {
+    display: none;
+  }
+
+  .maintitle {
+    margin-bottom: 1rem;
+  }
 }
 
 /****************************************
@@ -135,6 +146,11 @@ form {
     border-spacing: 0 0.5rem;
   }
 
+  textarea.forminput,
+  input[type="text"].forminput,
+  input[type="password"].forminput {
+    width: 100%;
+  }
 
   .maintitle {
     display: none;
@@ -142,6 +158,436 @@ form {
 }
 
 #ucpcontent p {}
+
+.Post {
+
+  .tableborder {
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+  }
+
+  #post-icon-options,
+  #enter-your-post-header {
+    display: none;
+  }
+
+  textarea.textinput,
+  input[type="text"].forminput {
+    width: 100%;
+  }
+
+  textarea.textinput {
+    font-size: 18px;
+  }
+
+  #post-options {
+    label {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      input[type="checkbox"] {
+        color-scheme: dark;
+      }
+    }
+  }
+
+  #topic-title,
+  #topic-desc,
+  #code-buttons,
+  #enter-your-post,
+  #post-options,
+  #post-as,
+  #post-as+tr+tr {
+    border-radius: 0.5rem;
+    background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
+    backdrop-filter: blur(4px);
+    border: 1px solid #000;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+    td {
+      padding: 0.5rem;
+    }
+
+  }
+}
+
+.Online {
+  #navstrip {
+    display: block;
+  }
+
+  br,
+  div[align="left"] {
+    display: none;
+  }
+
+  .maintitle {
+    margin-bottom: 1rem;
+  }
+
+  .tableborder>table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  // Hide the header row
+  tr:has(> th) {
+    display: none;
+  }
+
+  // Each member becomes a card
+  tr:has(> td.row1) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
+    border: 1px solid #000;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+
+    a {
+      span {
+        font-family: var(--font-display);
+        font-size: 20px;
+        color: var(--groupc-main);
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        text-shadow:
+          0 0 6px rgb(var(--groupr-main) / 80%),
+          0 0 14px rgb(var(--groupr-accent) / 25%);
+
+        &::after {
+          content: "<" var(--groupn) ">";
+          text-shadow: none;
+          font-size: 12px;
+          font-family: var(--font-body);
+          color: #888;
+        }
+      }
+    }
+  }
+
+  // Reset table cells
+  td.row1 {
+    display: block;
+    padding: 0;
+    width: auto;
+    text-align: left;
+  }
+
+  // Member name
+  td.row1:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  // Location
+  td.row1:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--color-light);
+  }
+
+  // Time
+  td.row1:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 10px;
+  }
+
+  // PM button
+  td.row1:nth-child(4) {
+    display: none;
+  }
+
+  // Keep the sorting form!
+  tr:has(> td.darkrow1) {
+    display: block;
+    margin-top: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    background: rgb(0 0 0 / 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid #000;
+    font-size: 10px;
+    padding: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+
+  }
+
+  td.darkrow1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input[type="submit"] {
+      padding: 5px 12px;
+    }
+  }
+}
+
+.Search {
+
+  .maintitle {
+    margin-bottom: 1rem;
+  }
+
+  .titlemedium {
+    border-radius: 8px;
+    width: 100%;
+    background: rgb(0 0 0 / 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid #000;
+    padding: 12px 20px !important;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+  }
+
+  .row2 {
+    background: none;
+    backdrop-filter: none;
+    border-radius: 0;
+    width: auto;
+    box-shadow: none;
+    padding: 0 !important;
+    border: none;
+  }
+
+  br:has(+ div:empty),
+  div:empty+br,
+  div:empty {
+    display: none;
+  }
+
+  :is(#search-topics, #active-topics) {
+    .tablebasic {
+      display: block;
+      width: 100%;
+
+      >tbody {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      // Goodbye, table headers.
+      >tbody>tr:has(> .titlemedium) {
+        display: none;
+      }
+
+      // Each topic becomes a card.
+      >tbody>tr:has(> .row4) {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 12px 24px;
+        align-items: center;
+
+        padding: 20px;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(4px);
+        background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
+        border: 1px solid #000;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        >td {
+          display: block;
+          width: auto;
+          padding: 0;
+          text-align: left;
+        }
+
+        // 1. Old unread/read icon
+        >td:nth-child(1) {
+          display: none;
+        }
+
+        // 2. Empty spacer
+        >td:nth-child(2) {
+          display: none;
+        }
+
+        // 3. Topic title + description
+        >td:nth-child(3) {
+          grid-column: 1 / -1;
+
+          // The nested table serves no useful
+          // layout purpose anymore.
+          table,
+          tbody,
+          tr,
+          td {
+            display: block;
+            width: 100%;
+            padding: 0;
+          }
+
+          // Hide the empty icon cell
+          table td:empty {
+            display: none;
+          }
+
+          table a {
+            font-size: 24px;
+            color: var(--color-accent1);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow:
+              0 0 6px rgb(var(--rgb-accent1) / 80%),
+              0 0 14px rgb(var(--rgb-accent2) / 25%);
+          }
+
+          .desc {
+            display: block;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            color: #999;
+          }
+        }
+
+        // 4. Forum
+        >td:nth-child(4) {
+          grid-column: 1;
+          grid-row: 2;
+
+          font-size: 12px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: var(--color-accent2);
+
+          a {
+            &::before {
+              content: "POSTED IN ";
+              color: #999;
+            }
+          }
+        }
+
+        // 5. Topic starter
+        >td:nth-child(5) {
+          grid-column: 1;
+          grid-row: 3;
+
+          font-size: 12px;
+          margin-bottom: -1rem;
+
+          &::before {
+            content: "STARTED BY ";
+            color: #999;
+          }
+        }
+
+        // 6. Replies
+        >td:nth-child(6) {
+          grid-column: 2;
+          grid-row: 2;
+
+          font-size: 0.75rem;
+
+          &::after {
+            content: " REPLIES";
+            color: #999;
+          }
+        }
+
+        // 7. Views
+        >td:nth-child(7) {
+          grid-column: 3;
+          grid-row: 2;
+
+          font-size: 0.75rem;
+
+          &::after {
+            content: " VIEWS";
+            color: #999;
+          }
+        }
+
+        // 8. Last activity
+        >td:nth-child(8) {
+          grid-column: 2 / -1;
+          grid-row: 3;
+
+          font-size: 0.75rem;
+          text-align: right;
+          color: #999;
+
+          a[href*="showuser="] {
+            color: var(--color-accent2) !important;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    // Mobile
+    @media (max-width: 600px) {
+      .tablebasic>tbody>tr:has(> .row4) {
+        grid-template-columns: 1fr 1fr;
+
+        >td:nth-child(4),
+        >td:nth-child(5),
+        >td:nth-child(8) {
+          grid-column: 1 / -1;
+          grid-row: auto;
+        }
+
+        >td:nth-child(6),
+        >td:nth-child(7) {
+          grid-row: auto;
+        }
+      }
+    }
+  }
+}
 
 /****************************************
   Search Bar 
@@ -400,7 +846,6 @@ textarea.textinput {
   background: rgb(0 0 0 / .4);
   font-family: var(--font-body);
   color: var(--color-light);
-  width: 100%;
   font-size: 14px;
 
   box-shadow:
@@ -581,3 +1026,243 @@ img.attach {
 ************************************/
 
 .copyright {}
+
+.Login {
+  br {
+    display: none;
+  }
+
+  .maintitle {
+    display: none;
+  }
+
+  .pformstrip {
+    margin-bottom: 1rem;
+  }
+
+  .tablebasic {
+    border-radius: 8px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
+    backdrop-filter: blur(4px);
+    border: 1px solid #000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+    .pformleftw {
+      width: 30%;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pformright {
+      display: flex;
+      gap: 0.5rem;
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        color-scheme: dark;
+      }
+
+      input.forminput {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.Reg {
+  form[name="REG"] {
+
+    br {
+      display: none;
+    }
+
+    input[name="read_tos"]+b {
+      display: none;
+    }
+  }
+
+  #registered-name-warn,
+  #password-warn,
+  #email-warn {
+    color: #000;
+    padding: 0.25rem;
+  }
+
+  .tablepad {
+    background: rgb(0 0 0 / 0.4);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #000;
+    margin-bottom: 0.5rem;
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  .row2 {
+    margin-top: 0.5rem;
+  }
+
+  .maintitle {
+    display: none;
+  }
+
+  .pformstrip {
+    margin-bottom: 1rem;
+  }
+
+  #registration-form {
+    .registration-layout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    fieldset:is(:has(#password-one), :has(#email-one)) {
+      >table {
+        width: 100%;
+        table-layout: fixed;
+
+        tr {
+          td {
+            width: 50%;
+
+            input {
+              width: 100%;
+              box-sizing: border-box;
+            }
+          }
+        }
+      }
+    }
+
+    fieldset:has(#registered-name-checkeh) {
+      >table {
+        width: 100%;
+        table-layout: fixed;
+
+        td {
+          width: 100%;
+        }
+
+        input {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .registration-section {
+      display: grid;
+      gap: 1.5rem;
+      border-radius: 8px;
+      width: 100%;
+      background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
+      backdrop-filter: blur(4px);
+      border: 1px solid #000;
+      padding: 1rem;
+      margin-top: 0;
+      box-shadow:
+        /* outside depth */
+        0 8px 24px rgb(0 0 0 / 0.15),
+
+        /* bright upper/left inner edge */
+        inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+        /* darker lower/right inner edge */
+        inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+      &:has(input[name="field_1"]) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+
+        h3 {
+          grid-column: 1 / -1;
+        }
+
+        fieldset {
+          min-width: 0;
+
+          table {
+            width: 100%;
+          }
+
+          input[type="text"] {
+            width: 100%;
+          }
+        }
+      }
+
+
+      >h3 {
+        margin: 0;
+        color: #999;
+        font-size: var(--font-body);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &::after {
+          content: "";
+          flex: 1;
+          height: 1px;
+          background: #666;
+        }
+      }
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0.5rem 0;
+
+        tr {
+          td {
+
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 400;
+          }
+        }
+      }
+
+      legend {
+        margin-bottom: 0.75rem;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--color-accent1);
+        font-weight: 400;
+        padding: 0;
+
+        b {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

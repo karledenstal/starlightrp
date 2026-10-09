@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>starlight ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Iceland&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/jcink.scss" />
+    <link rel="stylesheet" href="../styles/main.scss" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+
+  <body class="Login">
+    <div id="tsparticles"></div>
+    <div id="starlight">
+      <div class="stlite">
+        <include src="src/partials/header.html"></include>
+        <div class="strlite-content">
+          <div class="split-layout">
+            <div class="boards-wrapper">
+              <form
+                action="https://starlightrp.space/index.php?act=Login&amp;CODE=01"
+                method="post"
+                name="LOGIN"
+                onsubmit="return ValidateForm();"
+              >
+                <input type="hidden" name="referer" value="" />
+                <input
+                  type="text"
+                  name="usr_name"
+                  id="usr_name"
+                  style="display: none"
+                />
+                <div class="tableborder">
+                  <div class="maintitle">&nbsp;Log In</div>
+                  <div class="pformstrip">
+                    Please enter your details below to log in
+                  </div>
+                  <table class="tablebasic" cellspacing="1">
+                    <tbody>
+                      <tr>
+                        <td class="pformleftw">Please enter your name</td>
+                        <td class="pformright" style="">
+                          <input
+                            type="text"
+                            size="20"
+                            maxlength="64"
+                            name="UserName"
+                            class="forminput"
+                            style=""
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pformleftw">Please enter your password</td>
+                        <td class="pformright">
+                          <input
+                            type="password"
+                            size="20"
+                            name="PassWord"
+                            class="forminput"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="pformstrip">Options</div>
+                  <table class="tablebasic" cellspacing="1">
+                    <tbody>
+                      <tr>
+                        <td class="pformleftw">
+                          <b>Remember me?</b><br />If enabled, you will be
+                          automatically logged in again when you visit.<br />This
+                          is not recommended for shared computers.
+                        </td>
+                        <td class="pformright">
+                          <input
+                            type="radio"
+                            name="CookieDate"
+                            value="1"
+                            checked="checked"
+                          />Yes<br /><input
+                            type="radio"
+                            name="CookieDate"
+                            value="0"
+                          />No
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pformleftw">
+                          <b>Privacy</b>, do you want to appear on the active
+                          users list?
+                        </td>
+                        <td class="pformright">
+                          <input
+                            type="checkbox"
+                            name="Privacy"
+                            value="1"
+                          />Don't add me to the active users list
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="pformstrip" align="center">
+                    <input
+                      type="submit"
+                      name="submit"
+                      value="Log me in"
+                      class="forminput"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <include
+              src="src/partials/rail.html"
+              locals='{ "gid": "9" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../scripts/particles.js"></script>
+  </body>
+</html>

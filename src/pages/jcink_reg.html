@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>starlight ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Iceland&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/jcink.scss" />
+    <link rel="stylesheet" href="../styles/main.scss" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+
+  <body class="Reg">
+    <div id="tsparticles"></div>
+    <div id="starlight">
+      <div class="stlite">
+        <include src="src/partials/header.html"></include>
+        <div class="strlite-content">
+          <div class="split-layout">
+            <div class="boards-wrapper">
+              <form
+                action="https://starlightrp.space/index.php"
+                method="post"
+                name="REG"
+                onsubmit="return Validate();"
+                autocomplete="off"
+              >
+                <input type="hidden" name="act" value="Reg" />
+                <input type="hidden" name="CODE" value="02" />
+                <input type="hidden" name="coppa_user" value="0" />
+                <input type="hidden" name="read_tos" value="1" />
+
+                <b>Registration Instructions</b><br /><br />Please ensure that
+                you complete all the fields fully, taking particular care over
+                the password fields.
+                <br />
+                <br />
+                <div class="tableborder" id="registration-form">
+                  <div class="maintitle">&nbsp;Registration Form</div>
+                  <div class="pformstrip">Please complete the form fully</div>
+                  <div class="tablepad">
+                    <table cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="50%" valign="top">
+                            <fieldset>
+                              <legend><b>Username:</b></legend>
+
+                              <div
+                                class="warning"
+                                style="
+                                  background-color: #ffcccc;
+                                  margin: 2px;
+                                  display: none;
+                                  border: 1px solid #cc0000;
+                                  padding: 4px;
+                                "
+                              >
+                                <div id="registered-name-warn"></div>
+                              </div>
+
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      Enter your desired username &nbsp;<span
+                                        >(<a
+                                          href="#"
+                                          style="cursor: help"
+                                          title="This is the name shown with all your topics and posts. Between 3 and 26 chars."
+                                          >?</a
+                                        >)</span
+                                      >
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <!-- Properly set up -->
+                                      <input
+                                        type="text"
+                                        class="forminput"
+                                        size="50"
+                                        minlength="3"
+                                        maxlength="26"
+                                        id="registered-name-checkeh"
+                                        value=""
+                                        name="UserName"
+                                        onblur="check_name()"
+                                      />
+                                      <span
+                                        id="registered-name-image"
+                                        style="display: none"
+                                      ></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <br />
+
+                            <fieldset>
+                              <div
+                                class="warning"
+                                style="
+                                  background-color: #ffcccc;
+                                  margin: 2px;
+                                  display: none;
+                                  border: 1px solid #cc0000;
+                                  padding: 4px;
+                                "
+                              >
+                                <div id="password-warn"></div>
+                              </div>
+
+                              <legend><b>Password:</b></legend>
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td width="1%" nowrap="nowrap">
+                                      Enter your password &nbsp;<span
+                                        >(<a
+                                          href="#"
+                                          style="cursor: help"
+                                          title="Passwords must be between 3 and 32 characters long"
+                                          >?</a
+                                        >)</span
+                                      >
+                                    </td>
+
+                                    <td width="100%">
+                                      Confirm Password &nbsp;<span
+                                        >(<a
+                                          href="#"
+                                          style="cursor: help"
+                                          title="Please re-enter your password: It must match exactly"
+                                          >?</a
+                                        >)</span
+                                      >
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <input
+                                        class="forminput"
+                                        type="password"
+                                        size="25"
+                                        minlength="3"
+                                        maxlength="32"
+                                        value=""
+                                        id="password-one"
+                                        name="PassWord"
+                                        onblur="check_pass()"
+                                        autocomplete="new-password"
+                                      />
+                                    </td>
+                                    <td>
+                                      <input
+                                        class="forminput"
+                                        type="password"
+                                        size="25"
+                                        minlength="3"
+                                        maxlength="32"
+                                        value=""
+                                        id="password-two"
+                                        name="PassWord_Check"
+                                        onblur="check_pass()"
+                                        autocomplete="new-password"
+                                      />
+                                    </td>
+                                    <td width="12">
+                                      <span
+                                        id="password-image"
+                                        style="display: none"
+                                      ></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <br />
+
+                            <fieldset>
+                              <div
+                                class="warning"
+                                style="
+                                  background-color: #ffcccc;
+                                  margin: 2px;
+                                  display: none;
+                                  border: 1px solid #cc0000;
+                                  padding: 4px;
+                                "
+                              >
+                                <div id="email-warn"></div>
+                              </div>
+
+                              <legend><b>Email Address:</b></legend>
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td width="1%" nowrap="nowrap">
+                                      Enter your Email Address &nbsp;<span
+                                        >(<a
+                                          href="#"
+                                          style="cursor: help"
+                                          title="Enter a valid email address."
+                                          >?</a
+                                        >)</span
+                                      >
+                                    </td>
+                                    <td width="100%">
+                                      Confirm Email Address &nbsp;<span
+                                        >(<a
+                                          href="#"
+                                          style="cursor: help"
+                                          title="Please re-enter your email address: It must match exactly"
+                                          >?</a
+                                        >)</span
+                                      >
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <input
+                                        class="forminput"
+                                        type="email"
+                                        size="25"
+                                        maxlength="150"
+                                        value=""
+                                        onblur="check_email()"
+                                        id="email-one"
+                                        name="EmailAddress"
+                                      />
+                                    </td>
+                                    <td>
+                                      <input
+                                        class="forminput"
+                                        type="email"
+                                        size="25"
+                                        maxlength="150"
+                                        value=""
+                                        onblur="check_email()"
+                                        id="email-two"
+                                        name="EmailAddress_two"
+                                      />
+                                    </td>
+                                    <td width="12">
+                                      <span
+                                        id="email-image"
+                                        style="display: none"
+                                      ></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <br />
+
+                            <fieldset>
+                              <legend><b>Alias</b></legend>
+
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        size="30"
+                                        name="field_1"
+                                        value=""
+                                        class="forminput"
+                                      />
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <br />
+                            <fieldset>
+                              <legend><b>Playby</b></legend>
+
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        size="30"
+                                        name="field_2"
+                                        value=""
+                                        class="forminput"
+                                      />
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <br />
+
+                            <fieldset>
+                              <legend><b>Human Verification Check</b></legend>
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td width="1%">
+                                      <div
+                                        class="g-recaptcha"
+                                        data-sitekey="6Lc9dwcUAAAAAJ1HXFExCJTcuTR23dtTi06yAa81"
+                                      >
+                                        <div style="width: 304px; height: 78px">
+                                          <div>
+                                            <iframe
+                                              title="reCAPTCHA"
+                                              width="304"
+                                              height="78"
+                                              role="presentation"
+                                              name="a-z5v1kaf9cunh"
+                                              frameborder="0"
+                                              scrolling="no"
+                                              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                              src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc9dwcUAAAAAJ1HXFExCJTcuTR23dtTi06yAa81&amp;co=aHR0cHM6Ly9zdGFybGlnaHRycC5zcGFjZTo0NDM.&amp;hl=en&amp;v=nY0xPItgwtlvjEjk2TqdwOQz&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=vt4lx0p1qdhr"
+                                            ></iframe>
+                                          </div>
+                                          <textarea
+                                            id="g-recaptcha-response"
+                                            name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="
+                                              width: 250px;
+                                              height: 40px;
+                                              border: 1px solid
+                                                rgb(193, 193, 193);
+                                              margin: 10px 25px;
+                                              padding: 0px;
+                                              resize: none;
+                                              display: none;
+                                            "
+                                          ></textarea>
+                                        </div>
+                                        <iframe style="display: none"></iframe>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </fieldset>
+                            <!--{STD_CAPTCHA}-->
+                          </td>
+                          <td width="50%" valign="top">
+                            <div>
+                              <b>Optional Information</b><br /><br />
+                              <table cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <fieldset>
+                                        <legend>Receiving Email</legend>
+                                        <div class="desc">
+                                          Now and again, the administrators and
+                                          other members might wish to contact
+                                          you via email through this board.
+                                        </div>
+                                        <br />
+                                        <input
+                                          type="checkbox"
+                                          name="allow_admin_mail"
+                                          value="1"
+                                          class="checkbox"
+                                        />
+                                        Receive email from administrators<br />
+                                        <input
+                                          type="checkbox"
+                                          name="allow_member_mail"
+                                          value="1"
+                                          class="checkbox"
+                                        />
+                                        Receive email from other members
+                                      </fieldset>
+                                      <br />
+
+                                      <fieldset>
+                                        <legend>Time Zone Settings</legend>
+                                        <div class="desc">
+                                          You can adjust the default time zone
+                                          setting below
+                                        </div>
+                                        <br />
+
+                                        <select
+                                          name="time_offset"
+                                          class="forminput"
+                                        >
+                                          <option
+                                            value="none"
+                                            selected="selected"
+                                          >
+                                            Please select the timezone for your
+                                            account...
+                                          </option>
+
+                                          <option value="-12">
+                                            (GMT - 12:00 hours) Enewetak,
+                                            Kwajalein
+                                          </option>
+                                          <option value="-11">
+                                            (GMT - 11:00 hours) Midway Island,
+                                            Samoa
+                                          </option>
+                                          <option value="-10">
+                                            (GMT - 10:00 hours) Hawaii
+                                          </option>
+                                          <option value="-9.5">
+                                            (GMT - 9:30 hours) French Polynesia
+                                          </option>
+                                          <option value="-9">
+                                            (GMT - 9:00 hours) Alaska
+                                          </option>
+                                          <option value="-8">
+                                            (GMT - 8:00 hours) Pacific Time (US
+                                            &amp; Canada)
+                                          </option>
+                                          <option value="-7">
+                                            (GMT - 7:00 hours) Mountain Time (US
+                                            &amp; Canada)
+                                          </option>
+                                          <option value="-6">
+                                            (GMT - 6:00 hours) Central Time (US
+                                            &amp; Canada), Mexico City
+                                          </option>
+                                          <option value="-5">
+                                            (GMT - 5:00 hours) Eastern Time (US
+                                            &amp; Canada), Bogota, Lima
+                                          </option>
+                                          <option value="-4">
+                                            (GMT - 4:00 hours) Atlantic Time
+                                            (Canada), Caracas, La Paz
+                                          </option>
+                                          <option value="-3.5">
+                                            (GMT - 3:30 hours) Newfoundland
+                                          </option>
+                                          <option value="-3">
+                                            (GMT - 3:00 hours) Brazil, Buenos
+                                            Aires, Falkland Is.
+                                          </option>
+                                          <option value="-2">
+                                            (GMT - 2:00 hours) Mid-Atlantic,
+                                            Ascention Is., St Helena
+                                          </option>
+                                          <option value="-1">
+                                            (GMT - 1:00 hours) Azores, Cape
+                                            Verde Islands
+                                          </option>
+                                          <option value="0">
+                                            (GMT) Casablanca, Dublin, London,
+                                            Lisbon, Monrovia
+                                          </option>
+                                          <option value="1">
+                                            (GMT + 1:00 hours) Brussels,
+                                            Copenhagen, Madrid, Paris
+                                          </option>
+                                          <option value="2">
+                                            (GMT + 2:00 hours) Kaliningrad,
+                                            South Africa
+                                          </option>
+                                          <option value="3">
+                                            (GMT + 3:00 hours) Baghdad, Riyadh,
+                                            Moscow, Nairobi
+                                          </option>
+                                          <option value="3.5">
+                                            (GMT + 3:30 hours) Tehran
+                                          </option>
+                                          <option value="4">
+                                            (GMT + 4:00 hours) Abu Dhabi, Baku,
+                                            Muscat, Tbilisi
+                                          </option>
+                                          <option value="4.5">
+                                            (GMT + 4:30 hours) Kabul
+                                          </option>
+                                          <option value="5">
+                                            (GMT + 5:00 hours) Ekaterinburg,
+                                            Karachi, Tashkent
+                                          </option>
+                                          <option value="5.5">
+                                            (GMT + 5:30 hours) Bombay, Calcutta,
+                                            Madras, New Delhi
+                                          </option>
+                                          <option value="5.75">
+                                            (GMT + 5:45 hours) Kathmandu
+                                          </option>
+                                          <option value="6">
+                                            (GMT + 6:00 hours) Almaty, Colombo,
+                                            Dhaka
+                                          </option>
+                                          <option value="6.5">
+                                            (GMT + 6:30 hours) Yangon,
+                                            Naypyidaw, Bantam
+                                          </option>
+                                          <option value="7">
+                                            (GMT + 7:00 hours) Bangkok, Hanoi,
+                                            Jakarta
+                                          </option>
+                                          <option value="8">
+                                            (GMT + 8:00 hours) Hong Kong, Perth,
+                                            Singapore, Taipei
+                                          </option>
+                                          <option value="8.75">
+                                            (GMT + 8:45 hours) Caiguna, Eucla
+                                          </option>
+                                          <option value="9">
+                                            (GMT + 9:00 hours) Osaka, Sapporo,
+                                            Seoul, Tokyo, Yakutsk
+                                          </option>
+                                          <option value="9.5">
+                                            (GMT + 9:30 hours) Adelaide, Darwin
+                                          </option>
+                                          <option value="10">
+                                            (GMT + 10:00 hours) Melbourne, Papua
+                                            New Guinea, Sydney
+                                          </option>
+                                          <option value="10.5">
+                                            (GMT + 10:30 hours) Lord Howe Island
+                                          </option>
+                                          <option value="11">
+                                            (GMT + 11:00 hours) Magadan, New
+                                            Caledonia, Solomon Is.
+                                          </option>
+                                          <option value="11.5">
+                                            (GMT + 11:30 hours) Burnt Pine,
+                                            Kingston
+                                          </option>
+                                          <option value="12">
+                                            (GMT + 12:00 hours) Auckland, Fiji,
+                                            Marshall Island
+                                          </option>
+                                          <option value="12.75">
+                                            (GMT + 12:45 hours) Chatham Islands
+                                          </option>
+                                          <option value="13">
+                                            (GMT + 13:00 hours) Kamchatka,
+                                            Anadyr
+                                          </option>
+                                          <option value="14">
+                                            (GMT + 14:00 hours) Kiritimati
+                                          </option></select
+                                        ><br /><br />
+
+                                        <!--<input type="checkbox" name="dst" value="1" class="checkbox"  /> Observing Daylight Saving Time?<br />-->
+                                      </fieldset>
+                                      <br />
+                                      <!--{OPTIONAL.FIELDS}-->
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td valign="middle" align="center">
+                            <div class="desc">
+                              <input type="checkbox" name="agree" value="1" /> I
+                              agree to the terms of this registration,
+                              <b>I am at least 18 years of age,</b> and wish to
+                              proceed.
+                            </div>
+                            <br />
+                            <input
+                              class="forminput"
+                              type="submit"
+                              value="Submit my registration &gt; &gt;"
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <include
+              src="src/partials/rail.html"
+              locals='{ "gid": "9" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../scripts/particles.js"></script>
+  </body>
+</html>

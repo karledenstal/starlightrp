@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>starlight ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Iceland&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/jcink.scss" />
+    <link rel="stylesheet" href="../styles/main.scss" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+
+  <body class="Online">
+    <div id="tsparticles"></div>
+    <div id="starlight">
+      <div class="stlite">
+        <include src="src/partials/header.html"></include>
+        <div class="strlite-content">
+          <div class="split-layout">
+            <div class="boards-wrapper">
+              <div class="tableborder">
+                <div class="maintitle">Online Users</div>
+                <table cellpadding="4" cellspacing="1" border="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <th align="left" width="30%" class="titlemedium">
+                        Member Name
+                      </th>
+                      <th align="left" width="30%" class="titlemedium">
+                        Location
+                      </th>
+                      <th align="center" width="20%" class="titlemedium">
+                        Time
+                      </th>
+                      <th align="left" width="10%" class="titlemedium">
+                        &nbsp;
+                      </th>
+                    </tr>
+                    <!-- Entry for 1 -->
+                    <tr>
+                      <td class="row1">
+                        <a href="https://starlightrp.space/index.php?showuser=1"
+                          ><span class="admin">Ghosty</span></a
+                        >
+                      </td>
+                      <td class="row1">Viewing Online List</td>
+                      <td class="row1" align="center">Today</td>
+                      <td class="row1" align="center">
+                        <a
+                          href="https://starlightrp.space/index.php?act=Msg&amp;CODE=04&amp;MID=1"
+                          ><span class="button-small">PM</span></a
+                        >
+                      </td>
+                    </tr>
+                    <!-- End of Entry -->
+                    <!-- End content Table -->
+                    <tr>
+                      <td
+                        colspan="4"
+                        class="darkrow1"
+                        align="center"
+                        valign="middle"
+                      >
+                        <form
+                          method="post"
+                          action="https://starlightrp.space/index.php?act=Online&amp;CODE=listall"
+                        >
+                          <b>Sort by: &nbsp;</b>
+                          <select class="forminput" name="sort_key">
+                            <option value="click" selected="selected">
+                              Last Click
+                            </option>
+                            <option value="name">Member Name</option>
+                          </select>
+                          <select class="forminput" name="show_mem">
+                            &nbsp;
+                            <option value="reg">Show Registered Only</option>
+                            <option value="guest">Show Guests Only</option>
+                            <option value="all" selected="selected">
+                              Show All Users
+                            </option>
+                          </select>
+                          <select class="forminput" name="sort_order">
+                            &nbsp;
+                            <option value="desc" selected="selected">
+                              Descending
+                            </option>
+                            <option value="asc">Ascending</option>
+                          </select>
+                          <input
+                            type="submit"
+                            value="Update"
+                            class="forminput"
+                          />
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <include
+              src="src/partials/rail.html"
+              locals='{ "gid": "9" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../scripts/particles.js"></script>
+  </body>
+</html>
