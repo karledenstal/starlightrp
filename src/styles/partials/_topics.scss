@@ -81,12 +81,15 @@
       inset -1px -1px 0 rgb(var(--rgb-dark) / 0.05);
 
     .topictt {
-      font-size: 24px;
-      font-style: italic;
-      font-family: var(--font-heading);
-      text-transform: lowercase;
+      font-size: 20px;
+      font-family: var(--font-display);
+      text-transform: uppercase;
       letter-spacing: 2px;
-      font-weight: 400;
+      font-weight: 700;
+      color: var(--groupc-main);
+      text-shadow:
+        0 0 6px rgb(var(--groupr-main) / 80%),
+        0 0 14px rgb(var(--groupr-accent) / 25%);
     }
 
     .topic-dd {
