@@ -1,0 +1,50 @@
+name: Release CSS
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run build:css
+
+      - name: Publish compiled CSS to release branch
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          mkdir -p /tmp/starlight-release
+          cp dist/main.css dist/jcink.css /tmp/starlight-release/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan css-release
+          git rm -rf . >/dev/null
+
+          mkdir -p dist
+          cp /tmp/starlight-release/*.css dist/
+
+          git add -f dist/
+          git commit -m "Release CSS ${RELEASE_TAG}"
+          git tag -f "css-${RELEASE_TAG}"
+          git push origin "refs/tags/css-${RELEASE_TAG}"
