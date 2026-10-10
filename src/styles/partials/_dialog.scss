@@ -1,0 +1,37 @@
+#starlight-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  background: transparent;
+  border: none;
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+    background: rgb(0 0 0 / 0.4);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  .dialog-content {
+    width: min(600px, 90vw);
+    max-height: 80vh;
+    border-radius: 0.5rem;
+    border: 1px solid #000;
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.6), rgb(var(--rgb-dark-contrast) / 0.6));
+    color: var(--color-light);
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+  }
+}

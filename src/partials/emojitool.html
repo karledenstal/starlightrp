@@ -1,0 +1,173 @@
+<div id="emojitool" class="emoji-picker" popover="auto">
+  <div class="emoji-content">
+    <div class="search-wrapper">
+      <input
+        type="search"
+        class="emoji-search"
+        name="emoji-search"
+        placeholder="Search emoji..."
+        autofocus
+      />
+      <button class="emoji-tone">l</button>
+    </div>
+
+    <div class="emoji-results"></div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    const $picker = $("#emojitool");
+    const $search = $picker.find(".emoji-search");
+    const $results = $picker.find(".emoji-results");
+
+    let ready = false;
+
+    async function init() {
+      try {
+        await Emoji.init(
+          "https://cdn.jsdelivr.net/gh/karledenstal/jcink-emojis@v1.0.1/emojis.json",
+        );
+        ready = true;
+
+        renderEmojis();
+      } catch (error) {
+        console.error("Emoji initialization failed:", error);
+        $results.text("Could not load emojis.");
+      }
+    }
+
+    $search.on("keydown", function (e) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        $results.find(".emoji-item").first().trigger("focus");
+      }
+    });
+
+    $results.on("keydown", ".emoji-item", function (e) {
+      const $items = $results.find(".emoji-item");
+      const index = $items.index(this);
+
+      const columns = Math.max(
+        1,
+        Math.round(
+          $results[0].clientWidth /
+            (this.getBoundingClientRect().width +
+              parseFloat(getComputedStyle($results[0]).columnGap || 0)),
+        ),
+      );
+
+      let next = index;
+
+      switch (e.key) {
+        case "ArrowRight":
+          next = index + 1;
+          break;
+        case "ArrowLeft":
+          next = index - 1;
+          break;
+        case "ArrowDown":
+          next = index + columns;
+          break;
+        case "ArrowUp":
+          if (index < columns) {
+            e.preventDefault();
+            $search.trigger("focus");
+            return;
+          }
+          next = index - columns;
+          break;
+        default:
+          return;
+      }
+
+      e.preventDefault();
+
+      if (next >= 0 && next < $items.length) {
+        $items.eq(next).trigger("focus");
+      }
+    });
+
+    const tones = [
+      { value: null, emoji: "👋" },
+      { value: "light", emoji: "👋🏻" },
+      { value: "medium-light", emoji: "👋🏼" },
+      { value: "medium", emoji: "👋🏽" },
+      { value: "medium-dark", emoji: "👋🏾" },
+      { value: "dark", emoji: "👋🏿" },
+    ];
+
+    let selectedTone = localStorage.getItem("starlight-emoji-tone") || null;
+
+    const $toneButton = $(".emoji-tone");
+
+    function updateToneButton() {
+      const current = tones.find((t) => t.value === selectedTone) ?? tones[0];
+
+      $toneButton.text(current.emoji);
+      $toneButton.attr("title", current.value || "Default");
+    }
+
+    $toneButton.on("click", function () {
+      const currentIndex = tones.findIndex((t) => t.value === selectedTone);
+      const next = tones[(currentIndex + 1) % tones.length];
+
+      selectedTone = next.value;
+
+      if (selectedTone) {
+        localStorage.setItem("starlight-emoji-tone", selectedTone);
+      } else {
+        localStorage.removeItem("starlight-emoji-tone");
+      }
+
+      updateToneButton();
+      renderEmojis($search.val());
+    });
+
+    updateToneButton();
+
+    function renderEmojis(query = "") {
+      if (!ready) return;
+
+      const results = Emoji.search(query, selectedTone, {
+        limit: 100,
+      });
+
+      $results.empty();
+
+      for (const item of results) {
+        $("<button>", {
+          type: "button",
+          class: "emoji-item",
+          text: item.emoji,
+          title: item.name,
+        })
+          .on("click", function () {
+            insertEmoji(item.emoji);
+          })
+          .appendTo($results);
+      }
+    }
+
+    function insertEmoji(emoji) {
+      const textarea = document.forms["REPLIER"]?.elements["Post"];
+      if (!textarea) return;
+
+      textarea.setRangeText(
+        emoji,
+        textarea.selectionStart,
+        textarea.selectionEnd,
+        "end",
+      );
+
+      textarea.focus();
+      $picker[0].hidePopover();
+    }
+
+    $search.on("input", function () {
+      renderEmojis(this.value);
+    });
+
+    init();
+  });
+</script>

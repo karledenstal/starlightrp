@@ -10,436 +10,448 @@
         <div class="strlite-content">
           <div class="split-layout">
             <div class="boards-wrapper">
-              <table
-                class="tableborder"
-                cellpadding="0"
-                cellspacing="0"
-                width="100%"
-                id="posting-form"
-              >
-                <tbody>
-                  <tr>
-                    <td class="maintitle" colspan="2">
-                      Post a new topic in Grand Central
-                    </td>
-                  </tr>
+              <form name="REPLIER">
+                <table
+                  class="tableborder"
+                  cellpadding="0"
+                  cellspacing="0"
+                  width="100%"
+                  id="posting-form"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="maintitle" colspan="2">
+                        Post a new topic in Grand Central
+                      </td>
+                    </tr>
 
-                  <tr id="topic-settings-header">
-                    <td colspan="2" class="pformstrip">Topic Settings</td>
-                  </tr>
-                  <tr id="topic-title">
-                    <td class="pformleft">Topic Title</td>
-                    <td class="pformright">
-                      <input
-                        type="text"
-                        size="40"
-                        maxlength="50"
-                        name="TopicTitle"
-                        value=""
-                        tabindex="1"
-                        class="forminput"
-                      />
-                    </td>
-                  </tr>
-                  <tr id="topic-desc">
-                    <td class="pformleft">Topic Description</td>
-                    <td class="pformright">
-                      <input
-                        type="text"
-                        size="40"
-                        maxlength="40"
-                        name="TopicDesc"
-                        value=""
-                        tabindex="2"
-                        class="forminput"
-                      />
-                    </td>
-                  </tr>
-                  <!--POLL BOX-->
-                  <tr id="code-buttons-header">
-                    <td class="pformstrip" colspan="2">Code Buttons</td>
-                  </tr>
-                  <tr id="code-buttons">
-                    <td class="pformleft">
-                      <input
-                        type="radio"
-                        class="radiobutton"
-                        name="bbmode"
-                        value="ezmode"
-                        onclick="setmode(this.value)"
-                      />&nbsp;<b>Guided Mode</b><br />
-                      <input
-                        type="radio"
-                        class="radiobutton"
-                        name="bbmode"
-                        value="normal"
-                        onclick="setmode(this.value)"
-                        checked="checked"
-                      />&nbsp;<b>Normal Mode</b>
-                      <script
-                        type="text/javascript"
-                        src="//files.jcink.net/html/jbfcode.js"
-                      ></script>
-                    </td>
-                    <td class="pformright">
-                      <span id="bbcode-buttons">
+                    <tr id="topic-settings-header">
+                      <td colspan="2" class="pformstrip">Topic Settings</td>
+                    </tr>
+                    <tr id="topic-title">
+                      <td class="pformleft">Topic Title</td>
+                      <td class="pformright">
                         <input
-                          type="button"
-                          accesskey="b"
-                          value=" B "
-                          onclick="simpletag('B')"
-                          class="codebuttons"
-                          name="B"
-                          style="font-weight: bold"
-                          onmouseover="hstat('bold')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="i"
-                          value=" I "
-                          onclick="simpletag('I')"
-                          class="codebuttons"
-                          name="I"
-                          style="font-style: italic"
-                          onmouseover="hstat('italic')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="u"
-                          value=" U "
-                          onclick="simpletag('U')"
-                          class="codebuttons"
-                          name="U"
-                          style="text-decoration: underline"
-                          onmouseover="hstat('under')"
-                        />
-
-                        <select
-                          name="ffont"
-                          class="codebuttons"
-                          onchange="
-                            alterfont(
-                              this.options[this.selectedIndex].value,
-                              'FONT',
-                            )
-                          "
-                          onmouseover="hstat('font')"
-                        >
-                          <option value="0">FONT</option>
-                          <option value="Arial" style="font-family: Arial">
-                            Arial
-                          </option>
-                          <option value="Times" style="font-family: Times">
-                            Times
-                          </option>
-                          <option value="Courier" style="font-family: Courier">
-                            Courier
-                          </option>
-                          <option value="Impact" style="font-family: Impact">
-                            Impact
-                          </option>
-                          <option value="Geneva" style="font-family: Geneva">
-                            Geneva
-                          </option>
-                          <option value="Optima" style="font-family: Optima">
-                            Optima
-                          </option></select
-                        ><select
-                          name="fsize"
-                          class="codebuttons"
-                          onchange="
-                            alterfont(
-                              this.options[this.selectedIndex].value,
-                              'SIZE',
-                            )
-                          "
-                          onmouseover="hstat('size')"
-                        >
-                          <option value="0">SIZE</option>
-                          <option value="1">Small</option>
-                          <option value="7">Large</option>
-                          <option value="14">Largest</option></select
-                        ><select
-                          name="fcolor"
-                          class="codebuttons"
-                          onchange="
-                            alterfont(
-                              this.options[this.selectedIndex].value,
-                              'COLOR',
-                            )
-                          "
-                          onmouseover="hstat('color')"
-                        >
-                          <option value="0">COLOR</option>
-                          <option value="blue" style="color: blue">Blue</option>
-                          <option value="red" style="color: red">Red</option>
-                          <option value="purple" style="color: purple">
-                            Purple
-                          </option>
-                          <option value="orange" style="color: orange">
-                            Orange
-                          </option>
-                          <option value="yellow" style="color: yellow">
-                            Yellow
-                          </option>
-                          <option value="gray" style="color: gray">Gray</option>
-                          <option value="green" style="color: green">
-                            Green
-                          </option>
-                        </select>
-                        <select
-                          name="talign"
-                          class="codebuttons"
-                          onchange="
-                            alterfont(
-                              this.options[this.selectedIndex].value,
-                              'ALIGN',
-                            )
-                          "
-                          onmouseover="hstat('ALIGN')"
-                        >
-                          <option value="">ALIGN</option>
-                          <option value="left">Left</option>
-                          <option value="center">Center</option>
-                          <option value="right">Right</option>
-                        </select>
-                        &nbsp;
-                        <a
-                          href="javascript:closeall();"
-                          onmouseover="hstat('close')"
-                          >Close all Tags</a
-                        >
-                        <br />
-                        <input
-                          type="button"
-                          accesskey="h"
-                          value=" LINK "
-                          onclick="tag_url()"
-                          class="codebuttons"
-                          name="url"
-                          onmouseover="hstat('url')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="g"
-                          value=" IMG "
-                          onclick="tag_image()"
-                          class="codebuttons"
-                          name="img"
-                          onmouseover="hstat('img')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="e"
-                          value=" @TAG  "
-                          onclick="tag_username()"
-                          class="codebuttons"
-                          name="taguser"
-                          onmouseover="hstat('taguser')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="q"
-                          value=" QUOTE "
-                          onclick="simpletag('QUOTE')"
-                          class="codebuttons"
-                          name="QUOTE"
-                          onmouseover="hstat('quote')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="p"
-                          value=" CODE "
-                          onclick="simpletag('CODE')"
-                          class="codebuttons"
-                          name="CODE"
-                          onmouseover="hstat('code')"
-                        />
-                        <input
-                          type="button"
-                          accesskey="l"
-                          value=" LIST "
-                          onclick="tag_list()"
-                          class="codebuttons"
-                          name="LIST"
-                          onmouseover="hstat('list')"
-                        />
-                        <!--<input type='button' accesskey='l' value=' SQL '     onclick='simpletag("SQL")'     class='codebuttons' name='SQL'>
-	   <input type='button' accesskey='t' value=' HTML '    onclick='simpletag("HTML")'    class='codebuttons' name='HTML'>-->
-                      </span>
-                      <br />
-                      Open Tags:&nbsp;<input
-                        type="text"
-                        name="tagcount"
-                        size="3"
-                        maxlength="3"
-                        style="
-                          font-size: 10px;
-                          font-family: verdana, arial;
-                          border: 0px;
-                          font-weight: bold;
-                        "
-                        readonly="readonly"
-                        class="row1"
-                        value="0"
-                      />
-                      &nbsp;<input
-                        type="text"
-                        name="helpbox"
-                        size="50"
-                        maxlength="120"
-                        style="
-                          width: auto;
-                          font-size: 10px;
-                          font-family: verdana, arial;
-                          border: 0px;
-                        "
-                        readonly="readonly"
-                        class="row1"
-                        value="Hint: Use Guided Mode for helpful prompts"
-                      />
-                    </td>
-                  </tr>
-                  <tr id="enter-your-post-header">
-                    <td colspan="2" class="pformstrip">Enter your Post</td>
-                  </tr>
-                  <tr id="enter-your-post">
-                    <td class="pformleft" align="center">
-                      <!--SMILIE TABLE-->
-                      <br />
-                      <div class="desc">
-                        <strong
-                          ><a href="javascript:CheckLength()"
-                            >Check Post Length</a
-                          >
-                          ·
-                          <a href="javascript:bbc_pop()"
-                            >BB Code Help</a
-                          ></strong
-                        >
-                      </div>
-                    </td>
-                    <td class="pformright" valign="top">
-                      <textarea
-                        cols="80"
-                        rows="20"
-                        name="Post"
-                        tabindex="3"
-                        class="textinput"
-                      ></textarea>
-                    </td>
-                  </tr>
-                  <tr id="post-options">
-                    <td class="pformleft"><b>Post Options</b></td>
-                    <td class="pformright">
-                      <input
-                        type="checkbox"
-                        name="enableemo"
-                        class="checkbox"
-                        value="yes"
-                        checked="checked"
-                      />&nbsp;<b>Enable</b> emoticons? <br /><input
-                        type="checkbox"
-                        name="enablesig"
-                        class="checkbox"
-                        value="yes"
-                        checked="checked"
-                      />&nbsp;<b>Enable</b> signature? <br /><input
-                        type="checkbox"
-                        name="enabletrack"
-                        class="checkbox"
-                        value="1"
-                      />&nbsp;<strong>Enable</strong>
-                      <acronym
-                        title="Notifications are delivered via alerts and emails depending on your preferences."
-                        >notification</acronym
-                      >
-                      of replies?
-                    </td>
-                  </tr>
-                  <!--QUOTE BOX-->
-
-                  <tr id="post-as-header">
-                    <td colspan="2" class="pformstrip">Post as user</td>
-                  </tr>
-                  <tr id="post-as">
-                    <td class="pformleft">Select sub-account author...</td>
-                    <td width="100%" class="pformright">
-                      <script>
-                        function edit_sub_user() {
-                          if (
-                            document.getElementById("post_as_menu").value == -1
-                          ) {
-                            document.getElementById(
-                              "post_as_selector",
-                            ).innerHTML =
-                              "<input type='text' class='forminput' name='post_as_username' size='40' placeholder='Enter username of any member here...'>";
-                          }
-                        }
-                      </script>
-
-                      <span id="post_as_selector">
-                        <select
-                          id="post_as_menu"
-                          name="post_as"
+                          type="text"
+                          size="40"
+                          maxlength="50"
+                          name="TopicTitle"
+                          value=""
+                          tabindex="1"
                           class="forminput"
-                          onchange="edit_sub_user()"
+                        />
+                      </td>
+                    </tr>
+                    <tr id="topic-desc">
+                      <td class="pformleft">Topic Description</td>
+                      <td class="pformright">
+                        <input
+                          type="text"
+                          size="40"
+                          maxlength="40"
+                          name="TopicDesc"
+                          value=""
+                          tabindex="2"
+                          class="forminput"
+                        />
+                      </td>
+                    </tr>
+                    <!--POLL BOX-->
+                    <tr id="code-buttons-header">
+                      <td class="pformstrip" colspan="2">Code Buttons</td>
+                    </tr>
+                    <tr id="code-buttons">
+                      <td class="pformleft">
+                        <input
+                          type="radio"
+                          class="radiobutton"
+                          name="bbmode"
+                          value="ezmode"
+                          onclick="setmode(this.value)"
+                        />&nbsp;<b>Guided Mode</b><br />
+                        <input
+                          type="radio"
+                          class="radiobutton"
+                          name="bbmode"
+                          value="normal"
+                          onclick="setmode(this.value)"
+                          checked="checked"
+                        />&nbsp;<b>Normal Mode</b>
+                        <script
+                          type="text/javascript"
+                          src="//files.jcink.net/html/jbfcode.js"
+                        ></script>
+                      </td>
+                      <td class="pformright">
+                        <span id="bbcode-buttons">
+                          <input
+                            type="button"
+                            accesskey="b"
+                            value=" B "
+                            onclick="simpletag('B')"
+                            class="codebuttons"
+                            name="B"
+                            style="font-weight: bold"
+                            onmouseover="hstat('bold')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="i"
+                            value=" I "
+                            onclick="simpletag('I')"
+                            class="codebuttons"
+                            name="I"
+                            style="font-style: italic"
+                            onmouseover="hstat('italic')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="u"
+                            value=" U "
+                            onclick="simpletag('U')"
+                            class="codebuttons"
+                            name="U"
+                            style="text-decoration: underline"
+                            onmouseover="hstat('under')"
+                          />
+
+                          <select
+                            name="ffont"
+                            class="codebuttons"
+                            onchange="
+                              alterfont(
+                                this.options[this.selectedIndex].value,
+                                'FONT',
+                              )
+                            "
+                            onmouseover="hstat('font')"
+                          >
+                            <option value="0">FONT</option>
+                            <option value="Arial" style="font-family: Arial">
+                              Arial
+                            </option>
+                            <option value="Times" style="font-family: Times">
+                              Times
+                            </option>
+                            <option
+                              value="Courier"
+                              style="font-family: Courier"
+                            >
+                              Courier
+                            </option>
+                            <option value="Impact" style="font-family: Impact">
+                              Impact
+                            </option>
+                            <option value="Geneva" style="font-family: Geneva">
+                              Geneva
+                            </option>
+                            <option value="Optima" style="font-family: Optima">
+                              Optima
+                            </option></select
+                          ><select
+                            name="fsize"
+                            class="codebuttons"
+                            onchange="
+                              alterfont(
+                                this.options[this.selectedIndex].value,
+                                'SIZE',
+                              )
+                            "
+                            onmouseover="hstat('size')"
+                          >
+                            <option value="0">SIZE</option>
+                            <option value="1">Small</option>
+                            <option value="7">Large</option>
+                            <option value="14">Largest</option></select
+                          ><select
+                            name="fcolor"
+                            class="codebuttons"
+                            onchange="
+                              alterfont(
+                                this.options[this.selectedIndex].value,
+                                'COLOR',
+                              )
+                            "
+                            onmouseover="hstat('color')"
+                          >
+                            <option value="0">COLOR</option>
+                            <option value="blue" style="color: blue">
+                              Blue
+                            </option>
+                            <option value="red" style="color: red">Red</option>
+                            <option value="purple" style="color: purple">
+                              Purple
+                            </option>
+                            <option value="orange" style="color: orange">
+                              Orange
+                            </option>
+                            <option value="yellow" style="color: yellow">
+                              Yellow
+                            </option>
+                            <option value="gray" style="color: gray">
+                              Gray
+                            </option>
+                            <option value="green" style="color: green">
+                              Green
+                            </option>
+                          </select>
+                          <select
+                            name="talign"
+                            class="codebuttons"
+                            onchange="
+                              alterfont(
+                                this.options[this.selectedIndex].value,
+                                'ALIGN',
+                              )
+                            "
+                            onmouseover="hstat('ALIGN')"
+                          >
+                            <option value="">ALIGN</option>
+                            <option value="left">Left</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                          </select>
+                          &nbsp;
+                          <a
+                            href="javascript:closeall();"
+                            onmouseover="hstat('close')"
+                            >Close all Tags</a
+                          >
+                          <br />
+                          <input
+                            type="button"
+                            accesskey="h"
+                            value=" LINK "
+                            onclick="tag_url()"
+                            class="codebuttons"
+                            name="url"
+                            onmouseover="hstat('url')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="g"
+                            value=" IMG "
+                            onclick="tag_image()"
+                            class="codebuttons"
+                            name="img"
+                            onmouseover="hstat('img')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="e"
+                            value=" @TAG  "
+                            onclick="tag_username()"
+                            class="codebuttons"
+                            name="taguser"
+                            onmouseover="hstat('taguser')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="q"
+                            value=" QUOTE "
+                            onclick="simpletag('QUOTE')"
+                            class="codebuttons"
+                            name="QUOTE"
+                            onmouseover="hstat('quote')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="p"
+                            value=" CODE "
+                            onclick="simpletag('CODE')"
+                            class="codebuttons"
+                            name="CODE"
+                            onmouseover="hstat('code')"
+                          />
+                          <input
+                            type="button"
+                            accesskey="l"
+                            value=" LIST "
+                            onclick="tag_list()"
+                            class="codebuttons"
+                            name="LIST"
+                            onmouseover="hstat('list')"
+                          />
+                          <!--<input type='button' accesskey='l' value=' SQL '     onclick='simpletag("SQL")'     class='codebuttons' name='SQL'>
+	   <input type='button' accesskey='t' value=' HTML '    onclick='simpletag("HTML")'    class='codebuttons' name='HTML'>-->
+                        </span>
+                        <br />
+                        Open Tags:&nbsp;<input
+                          type="text"
+                          name="tagcount"
+                          size="3"
+                          maxlength="3"
+                          style="
+                            font-size: 10px;
+                            font-family: verdana, arial;
+                            border: 0px;
+                            font-weight: bold;
+                          "
+                          readonly="readonly"
+                          class="row1"
+                          value="0"
+                        />
+                        &nbsp;<input
+                          type="text"
+                          name="helpbox"
+                          size="50"
+                          maxlength="120"
+                          style="
+                            width: auto;
+                            font-size: 10px;
+                            font-family: verdana, arial;
+                            border: 0px;
+                          "
+                          readonly="readonly"
+                          class="row1"
+                          value="Hint: Use Guided Mode for helpful prompts"
+                        />
+                      </td>
+                    </tr>
+                    <tr id="enter-your-post-header">
+                      <td colspan="2" class="pformstrip">Enter your Post</td>
+                    </tr>
+                    <tr id="enter-your-post">
+                      <td class="pformleft" align="center">
+                        <!--SMILIE TABLE-->
+                        <br />
+                        <div class="desc">
+                          <strong
+                            ><a href="javascript:CheckLength()"
+                              >Check Post Length</a
+                            >
+                            ·
+                            <a href="javascript:bbc_pop()"
+                              >BB Code Help</a
+                            ></strong
+                          >
+                        </div>
+                      </td>
+                      <td class="pformright" valign="top">
+                        <textarea
+                          cols="80"
+                          rows="20"
+                          name="Post"
+                          tabindex="3"
+                          class="textinput"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr id="post-options">
+                      <td class="pformleft"><b>Post Options</b></td>
+                      <td class="pformright">
+                        <input
+                          type="checkbox"
+                          name="enableemo"
+                          class="checkbox"
+                          value="yes"
+                          checked="checked"
+                        />&nbsp;<b>Enable</b> emoticons? <br /><input
+                          type="checkbox"
+                          name="enablesig"
+                          class="checkbox"
+                          value="yes"
+                          checked="checked"
+                        />&nbsp;<b>Enable</b> signature? <br /><input
+                          type="checkbox"
+                          name="enabletrack"
+                          class="checkbox"
+                          value="1"
+                        />&nbsp;<strong>Enable</strong>
+                        <acronym
+                          title="Notifications are delivered via alerts and emails depending on your preferences."
+                          >notification</acronym
                         >
-                          <option value="0">-- Current account --</option>
-                          <option value="2">Cassian Crane</option>
-                          <option value="-1">Enter username...</option>
+                        of replies?
+                      </td>
+                    </tr>
+                    <!--QUOTE BOX-->
+
+                    <tr id="post-as-header">
+                      <td colspan="2" class="pformstrip">Post as user</td>
+                    </tr>
+                    <tr id="post-as">
+                      <td class="pformleft">Select sub-account author...</td>
+                      <td width="100%" class="pformright">
+                        <script>
+                          function edit_sub_user() {
+                            if (
+                              document.getElementById("post_as_menu").value ==
+                              -1
+                            ) {
+                              document.getElementById(
+                                "post_as_selector",
+                              ).innerHTML =
+                                "<input type='text' class='forminput' name='post_as_username' size='40' placeholder='Enter username of any member here...'>";
+                            }
+                          }
+                        </script>
+
+                        <span id="post_as_selector">
+                          <select
+                            id="post_as_menu"
+                            name="post_as"
+                            class="forminput"
+                            onchange="edit_sub_user()"
+                          >
+                            <option value="0">-- Current account --</option>
+                            <option value="2">Cassian Crane</option>
+                            <option value="-1">Enter username...</option>
+                          </select>
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="pformstrip" colspan="2">Options</td>
+                    </tr>
+                    <tr>
+                      <td class="pformleft">After posting...</td>
+                      <td class="pformright">
+                        <select
+                          id="forminput"
+                          name="mod_options"
+                          class="forminput"
+                        >
+                          <option value="nowt">( Do Nothing )</option>
+                          <option value="pin">Pin this topic</option>
+                          <option value="close">Close this topic</option>
+                          <option value="pinclose">
+                            Pin &amp; Close this topic
+                          </option>
                         </select>
-                      </span>
-                    </td>
-                  </tr>
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td class="pformstrip" colspan="2">Options</td>
-                  </tr>
-                  <tr>
-                    <td class="pformleft">After posting...</td>
-                    <td class="pformright">
-                      <select
-                        id="forminput"
-                        name="mod_options"
-                        class="forminput"
+                    <tr>
+                      <td
+                        class="pformstrip"
+                        align="center"
+                        style="text-align: center"
+                        colspan="2"
                       >
-                        <option value="nowt">( Do Nothing )</option>
-                        <option value="pin">Pin this topic</option>
-                        <option value="close">Close this topic</option>
-                        <option value="pinclose">
-                          Pin &amp; Close this topic
-                        </option>
-                      </select>
-                    </td>
-                  </tr>
+                        <input
+                          type="submit"
+                          name="submit"
+                          value="Post New Topic"
+                          tabindex="4"
+                          class="forminput"
+                          accesskey="s"
+                        />
+                        <input
+                          type="submit"
+                          name="preview"
+                          value="Preview Post"
+                          tabindex="5"
+                          class="forminput"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
 
-                  <tr>
-                    <td
-                      class="pformstrip"
-                      align="center"
-                      style="text-align: center"
-                      colspan="2"
-                    >
-                      <input
-                        type="submit"
-                        name="submit"
-                        value="Post New Topic"
-                        tabindex="4"
-                        class="forminput"
-                        accesskey="s"
-                      />
-                      <input
-                        type="submit"
-                        name="preview"
-                        value="Preview Post"
-                        tabindex="5"
-                        class="forminput"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <include src="src/partials/emojitool.html"></include>
             </div>
 
             <include
@@ -451,5 +463,6 @@
       </div>
     </div>
     <script type="module" src="../scripts/particles.js"></script>
+    <script src="https://files.jcink.net/uploads2/starlight/emojis/emoji.js"></script>
   </body>
 </html>

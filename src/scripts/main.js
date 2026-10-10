@@ -1,4 +1,18 @@
 $(function () {
+  if (document.title.match(/->/i)) {
+    document.title = document.title.split(" -> ")[1].toUpperCase();
+  }
+
+  $(document).on("keydown", function (e) {
+    if (e.ctrlKey && e.code === "Period" && !e.repeat) {
+      e.preventDefault();
+
+      document.querySelector('[popovertarget="emojitool"]')?.click();
+    }
+  });
+});
+
+$(function () {
   const $row = $("#code-buttons");
   const $header = $("#code-buttons-header");
 
@@ -16,6 +30,8 @@ $(function () {
 
   const sms = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square preview-icon"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>`;
 
+  const emoji = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-face-slightly-smiling preview-icon"><path d="M15 10V9"/><path d="M16.472 15a6 6 0 01-8.943 0"/><path d="M9 10V9"/><circle cx="12" cy="12" r="10"/></svg>`;
+
   $row.html(`
     <td colspan="2" class="pformright">
       <div class="markdown-toolbar">
@@ -27,8 +43,10 @@ $(function () {
     <span class="md-sep"></span>
         <button type="button" data-md="image" title="Image">${image}</button>
       </div>
-    <div class="bbcode-toolbar">
+    <div class="bbcode-actions">
       <button type="button" data-md="texting" title="Texting">${sms}</button>
+      <span class="md-sep"></span>
+        <button type="button" popovertarget="emojitool" title="Emoji picker">${emoji}</button>
     </div>
     </div>
     </td>
@@ -45,10 +63,13 @@ $(function () {
 
   $row.on("click", "[data-md]", function () {
     console.log("clicked");
-    const textarea = document.forms["REPLIER"]?.elements["Post"];
-    if (!textarea) return;
+    //const textarea = document.forms["REPLIER"]?.elements["Post"];
+    //if (!textarea) return;
 
-    console.log("text", textarea);
+    if (this.dataset.md === "emoji") {
+      console.log("emoji");
+      return;
+    }
 
     const format = formats[this.dataset.md];
     if (!format) return;
@@ -150,4 +171,23 @@ $(function () {
       ),
     ),
   );
+});
+
+$(function () {
+  const $dialog = $("#starlight-dialog");
+  const dialog = $dialog[0];
+
+  $dialog.on("click", function (event) {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  window.openStarlightDialog = function (content) {
+    $dialog.find(".dialog-body").html(content);
+
+    dialog.showModal();
+  };
+
+  $dialog.find(".dialog-close").on("click", () => dialog.close());
 });
