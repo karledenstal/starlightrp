@@ -104,6 +104,10 @@ form {
   line-height: 150%;
   width: auto;
 
+  div.pformstrip {
+    display: none;
+  }
+
   tr {
     border-radius: 0.5rem;
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
