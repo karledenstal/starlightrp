@@ -1,0 +1,62 @@
+@use "sass:math";
+@use "sass:map";
+
+$base-size: 16px; // default base font size
+
+@function rem($value, $base: $base-size) {
+
+  // if value has no unit, assume px
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+
+  @return math.div($value, $base) * 1rem;
+}
+
+/* border value helper */
+@function border($size, $color: var(--color-deep-teal), $style: solid) {
+  @return rem($size) $style $color;
+}
+
+// — breakpoints tuned for forum skins —
+$bp: (
+  xs: 420px,
+  // tiny phones
+  sm: 600px,
+  // phones
+  md: 768px,
+  // big phones / small tablets
+  lg: 1024px,
+  // tablets
+  xl: 1200px // your desktop width,,,,
+);
+
+// Use like: @include down(md) { ... }  → max-width: 768px
+@mixin down($key) {
+  $val: map.get($bp, $key);
+
+  @if $val {
+    @media (max-width: $val) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No breakpoint #{$key} in $bp map.";
+  }
+}
+
+// (optional) up() if you ever need min-width rules
+@mixin up($key) {
+  $val: map.get($bp, $key);
+
+  @if $val {
+    @media (min-width: $val) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No breakpoint #{$key} in $bp map.";
+  }
+}

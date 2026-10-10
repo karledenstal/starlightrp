@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "helpers" as *;
+
+
 form {
   display: inline;
 }
@@ -49,11 +53,11 @@ form {
 
 #ucpmenu {
   line-height: 150%;
-  width: 270px;
+  width: rem(270);
 
   .pformstrip {
-    font-size: 10px;
-    letter-spacing: 1px;
+    font-size: rem(10);
+    letter-spacing: rem(1);
     text-transform: uppercase;
     color: var(--color-accent1);
     display: flex;
@@ -81,9 +85,9 @@ form {
   border: 1px solid #000;
   padding: 1rem;
   margin-top: 0;
-  font-size: 12px;
+  font-size: rem(12);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
 
   box-shadow:
     /* outside depth */
@@ -114,9 +118,9 @@ form {
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
     backdrop-filter: blur(4px);
     border: 1px solid #000;
-    font-size: 12px;
+    font-size: rem(12);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
 
     box-shadow:
       /* outside depth */
@@ -181,7 +185,7 @@ form {
   }
 
   textarea.textinput {
-    font-size: 18px;
+    font-size: rem(18);
   }
 
   #post-options {
@@ -207,9 +211,9 @@ form {
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
     backdrop-filter: blur(4px);
     border: 1px solid #000;
-    font-size: 12px;
+    font-size: rem(12);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
 
     box-shadow:
       /* outside depth */
@@ -265,15 +269,15 @@ form {
     backdrop-filter: blur(4px);
     background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
     border: 1px solid #000;
-    font-size: 12px;
+    font-size: rem(12);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     color: #666;
 
     a {
       span {
         font-family: var(--font-display);
-        font-size: 20px;
+        font-size: rem(20);
         color: var(--groupc-main);
         display: flex;
         align-items: center;
@@ -285,7 +289,7 @@ form {
         &::after {
           content: "<" var(--groupn) ">";
           text-shadow: none;
-          font-size: 12px;
+          font-size: rem(12);
           font-family: var(--font-body);
           color: #888;
         }
@@ -318,7 +322,7 @@ form {
   td.row1:nth-child(3) {
     grid-column: 2;
     grid-row: 1;
-    font-size: 10px;
+    font-size: rem(10);
   }
 
   // PM button
@@ -330,15 +334,15 @@ form {
   tr:has(> td.darkrow1) {
     display: block;
     margin-top: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     width: 100%;
     background: rgb(0 0 0 / 0.2);
     backdrop-filter: blur(4px);
     border: 1px solid #000;
-    font-size: 10px;
+    font-size: rem(10);
     padding: 0.25rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     box-shadow:
       /* outside depth */
       0 8px 24px rgb(0 0 0 / 0.15),
@@ -358,7 +362,7 @@ form {
     justify-content: center;
 
     input[type="submit"] {
-      padding: 5px 12px;
+      padding: rem(5) rem(12);
     }
   }
 }
@@ -370,17 +374,17 @@ form {
   }
 
   .titlemedium {
-    border-radius: 8px;
+    border-radius: 0.5rem;
     width: 100%;
     background: rgb(0 0 0 / 0.2);
     backdrop-filter: blur(4px);
     border: 1px solid #000;
-    padding: 12px 20px !important;
-    font-size: 10px;
+    padding: rem(12) rem(20) !important;
+    font-size: rem(10);
     text-align: center;
     margin-top: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     box-shadow:
       /* outside depth */
       0 8px 24px rgb(0 0 0 / 0.15),
@@ -428,17 +432,17 @@ form {
       >tbody>tr:has(> .row4) {
         display: grid;
         grid-template-columns: 1fr auto auto;
-        gap: 12px 24px;
+        gap: rem(12) rem(24);
         align-items: center;
 
-        padding: 20px;
+        padding: rem(20);
         border-radius: 0.5rem;
         backdrop-filter: blur(4px);
         background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
         border: 1px solid #000;
-        font-size: 12px;
+        font-size: rem(12);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
 
         >td {
           display: block;
@@ -478,11 +482,11 @@ form {
           }
 
           table a {
-            font-size: 24px;
+            font-size: rem(24);
             color: var(--color-accent1);
             font-family: var(--font-display);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: rem(1);
             font-weight: 600;
             text-shadow:
               0 0 6px rgb(var(--rgb-accent1) / 80%),
@@ -502,8 +506,8 @@ form {
           grid-column: 1;
           grid-row: 2;
 
-          font-size: 12px;
-          letter-spacing: 1px;
+          font-size: rem(12);
+          letter-spacing: rem(1);
           text-transform: uppercase;
           color: var(--color-accent2);
 
@@ -520,7 +524,7 @@ form {
           grid-column: 1;
           grid-row: 3;
 
-          font-size: 12px;
+          font-size: rem(12);
           margin-bottom: -1rem;
 
           &::before {
@@ -633,8 +637,8 @@ form {
 
 .activeuserstrip {
   text-align: center;
-  font-size: 10px;
-  letter-spacing: 1px;
+  font-size: rem(10);
+  letter-spacing: rem(1);
   text-transform: uppercase;
 }
 
@@ -672,15 +676,15 @@ form {
 .row2 {}
 
 .row2 {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   width: 100%;
   background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
   backdrop-filter: blur(4px);
   border: 1px solid #000;
   padding: 1rem !important;
-  font-size: 10px;
+  font-size: rem(10);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
 
   box-shadow:
     /* outside depth */
@@ -696,15 +700,15 @@ form {
 .darkrow1 {}
 
 .darkrow2 {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   width: 100%;
   background: rgb(0 0 0 / 0.2);
   backdrop-filter: blur(4px);
   border: 1px solid #000;
-  padding: 12px 20px !important;
-  font-size: 10px;
+  padding: rem(12) rem(20) !important;
+  font-size: rem(10);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
   box-shadow:
     /* outside depth */
     0 8px 24px rgb(0 0 0 / 0.15),
@@ -733,8 +737,8 @@ td.darkrow2 {
 .maintitle {
   display: flex;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 10px;
+  letter-spacing: rem(1);
+  font-size: rem(10);
 }
 
 .topic-title {
@@ -794,17 +798,17 @@ td.darkrow2 {
 ***********************************************/
 
 .button-large {
-  min-width: 75px;
+  min-width: rem(75);
   margin-left: 0.5rem;
   display: inline-flex;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-accent3) / 0.2));
   backdrop-filter: blur(4px);
   border: 1px solid #000;
-  padding: 10px 18px;
-  font-size: 12px;
+  padding: rem(10) rem(18);
+  font-size: rem(12);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
   transition: all 0.1s 0.15s ease;
 
   box-shadow:
@@ -841,7 +845,7 @@ td.darkrow2 {
 }
 
 .post-buttons-top {
-  margin-top: 3px;
+  margin-top: rem(3);
 }
 
 .button-large.closed {}
@@ -856,7 +860,7 @@ textarea.textinput {
   background: rgb(0 0 0 / .4);
   font-family: var(--font-body);
   color: var(--color-light);
-  font-size: 14px;
+  font-size: rem(14);
 
   box-shadow:
     /* outside depth */
@@ -878,8 +882,8 @@ select.forminput {
   border: 1px solid #000;
   font-family: var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 10px;
+  letter-spacing: rem(1);
+  font-size: rem(10);
 
   option {
     background: var(--color-dark);
@@ -890,9 +894,9 @@ select.forminput {
 select[name="sub_id"] {
   font-family: var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
   width: 100%;
-  font-size: 10px;
+  font-size: rem(10);
   margin-top: 1rem;
 }
 
@@ -900,14 +904,14 @@ input[type=submit],
 input[type=button],
 input[type=reset] {
   width: fit-content;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: linear-gradient(to bottom right, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-accent3) / 0.2));
   backdrop-filter: blur(4px);
   border: 1px solid #000;
-  padding: 10px 18px;
-  font-size: 12px;
+  padding: rem(10) rem(18);
+  font-size: rem(12);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: rem(1);
   transition: all 100ms ease 150ms;
   cursor: pointer;
 
@@ -938,18 +942,13 @@ input[type=reset] {
   }
 }
 
-.codebuttons {
-  font-size: 10px;
-}
-
-
 /****************************************
   Form table cell styles, left/right/top
 *****************************************/
 
 .pformstrip {
-  font-size: 10px;
-  letter-spacing: 1px;
+  font-size: rem(10);
+  letter-spacing: rem(1);
   text-transform: uppercase;
   color: var(--color-accent1);
   display: flex;
@@ -994,7 +993,7 @@ input[type=reset] {
 
 #mark-as-read-subto {
   float: none;
-  padding-top: 3px;
+  padding-top: rem(3);
 }
 
 /********************************
@@ -1004,17 +1003,17 @@ input[type=reset] {
 /* image tag styles */
 img {
   vertical-align: middle;
-  border: 0px
+  border: 0;
 }
 
 img.attach {
   border: 2px outset #555;
-  padding: 2px
+  padding: rem(2);
 }
 
 /* Edited by text */
 .edit {
-  font-size: 9px
+  font-size: rem(9);
 }
 
 /* Topic Macros */
@@ -1051,7 +1050,7 @@ img.attach {
   }
 
   .tablebasic {
-    border-radius: 8px;
+    border-radius: 0.5rem;
     width: 100%;
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
     backdrop-filter: blur(4px);
@@ -1072,9 +1071,9 @@ img.attach {
 
     .pformleftw {
       width: 30%;
-      font-size: 12px;
+      font-size: rem(12);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: rem(1);
     }
 
     .pformright {
@@ -1120,7 +1119,7 @@ img.attach {
     border: 1px solid #000;
     margin-bottom: 0.5rem;
     line-height: 1.55;
-    font-size: 14px;
+    font-size: rem(14);
   }
 
   .row2 {
@@ -1178,7 +1177,7 @@ img.attach {
     .registration-section {
       display: grid;
       gap: 1.5rem;
-      border-radius: 8px;
+      border-radius: 0.5rem;
       width: 100%;
       background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
       backdrop-filter: blur(4px);
@@ -1223,8 +1222,8 @@ img.attach {
         color: #999;
         font-size: var(--font-body);
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 12px;
+        letter-spacing: rem(1);
+        font-size: rem(12);
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -1251,8 +1250,8 @@ img.attach {
         tr {
           td {
 
-            font-size: 10px;
-            letter-spacing: 1px;
+            font-size: rem(10);
+            letter-spacing: rem(1);
             text-transform: uppercase;
             color: #666;
             font-weight: 400;
@@ -1262,8 +1261,8 @@ img.attach {
 
       legend {
         margin-bottom: 0.75rem;
-        font-size: 12px;
-        letter-spacing: 1px;
+        font-size: rem(12);
+        letter-spacing: rem(1);
         text-transform: uppercase;
         color: var(--color-accent1);
         font-weight: 400;

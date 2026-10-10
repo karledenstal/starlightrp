@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../helpers" as *;
+
 .strlite-members {
   display: flex;
   flex-direction: column;
@@ -8,8 +11,8 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    font-size: 10px;
-    letter-spacing: 1px;
+    font-size: rem(10);
+    letter-spacing: rem(1);
     text-transform: uppercase;
 
     .label {
@@ -54,22 +57,23 @@
           margin: 0;
           font-family: var(--font-display);
           text-transform: uppercase;
-          font-size: 28px;
+          font-size: rem(28);
           display: flex;
           align-items: center;
+          letter-spacing: rem(1);
           gap: 0.5rem;
           text-shadow:
             0 0 6px rgb(var(--rgb-accent1) / 80%),
             0 0 14px rgb(var(--rgb-accent3) / 25%);
 
           i {
-            margin-top: 7px;
+            margin-top: rem(7);
           }
         }
 
         .subtitle {
-          font-family: 14px;
-          letter-spacing: 1px;
+          font-family: rem(14);
+          letter-spacing: rem(1);
           text-transform: uppercase;
           font-family: var(--font-body);
           color: #999;
@@ -134,7 +138,7 @@
           position: relative;
           border-radius: 0.5rem;
           overflow: hidden;
-          width: 125px;
+          width: rem(125);
           aspect-ratio: 1;
 
           box-shadow:
@@ -188,8 +192,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            letter-spacing: 1px;
+            font-size: rem(10);
+            letter-spacing: rem(1);
             text-transform: uppercase;
             gap: 1rem;
             color: #999;
@@ -205,8 +209,8 @@
             font-family: var(--font-display);
             margin-bottom: -24px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 42px;
+            letter-spacing: rem(1);
+            font-size: rem(42);
             font-weight: 700;
             color: var(--groupc-main);
             text-shadow:
@@ -227,9 +231,9 @@
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
     backdrop-filter: blur(4px);
     border: 1px solid #000;
-    font-size: 12px;
+    font-size: rem(12);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     box-shadow:
       /* outside depth */
       0 8px 24px rgb(0 0 0 / 0.15),
@@ -264,8 +268,8 @@
         inset -1px -1px 0 rgb(var(--rgb-dark) / 0.05);
 
       input.member-search {
-        width: 230px;
-        font-size: 12px;
+        width: rem(230);
+        font-size: rem(12);
         background: transparent;
         border: transparent;
         color: var(--color-light);
@@ -291,7 +295,7 @@
         border: 1px solid transparent;
         text-transform: uppercase;
         font-family: var(--font-body);
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         color: inherit;
         border-radius: 0.5rem;
         cursor: pointer;

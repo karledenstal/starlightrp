@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../helpers" as *;
+
 .strlite-profile {
   width: 100%;
   display: flex;
@@ -9,8 +12,8 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    font-size: 10px;
-    letter-spacing: 1px;
+    font-size: rem(10);
+    letter-spacing: rem(1);
     text-transform: uppercase;
 
     .label {
@@ -38,9 +41,9 @@
   .profile-header {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: rem(10);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     width: 100%;
 
 
@@ -66,10 +69,10 @@
 
     .profile-img {
       position: relative;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
       overflow: hidden;
-      width: 445px;
-      height: 640px;
+      width: rem(445);
+      height: rem(640);
 
       box-shadow:
         0 6px 16px rgb(0 0 0 / 0.25);
@@ -114,11 +117,11 @@
 
         .label {
           background-color: rgb(var(--groupr-accent) / 0.3);
-          border-radius: 4px;
-          padding: 4px 6px;
+          border-radius: rem(4);
+          padding: rem(4) rem(6);
           width: fit-content;
-          font-size: 10px;
-          letter-spacing: 1px;
+          font-size: rem(10);
+          letter-spacing: rem(1);
           text-transform: uppercase;
           color: var(--groupc-main);
           backdrop-filter: blur(4px);
@@ -186,14 +189,14 @@
 
           .listed {
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 10px;
+            letter-spacing: rem(1);
+            font-size: rem(10);
             text-align: right;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
             min-width: 0;
-            max-width: 450px;
+            max-width: rem(450);
           }
         }
       }
@@ -205,7 +208,7 @@
     gap: 1rem;
 
     .basics {
-      width: 445px;
+      width: rem(445);
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -216,7 +219,7 @@
         flex-flow: row nowrap;
         gap: 0.5rem;
         align-items: center;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         backdrop-filter: blur(4px);
         padding: 1.1rem;
         background: rgb(var(--groupr-accent) / 0.4);
@@ -232,11 +235,11 @@
           inset -1px -1px 0 rgb(0 0 0 / 0.15);
 
         .occupation {
-          font-size: 10px;
+          font-size: rem(10);
           display: flex;
           gap: 0.5rem;
           align-items: center;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           text-transform: uppercase;
           width: 100%;
 
@@ -251,8 +254,8 @@
         }
 
         span {
-          font-size: 10px;
-          letter-spacing: 1px;
+          font-size: rem(10);
+          letter-spacing: rem(1);
           text-transform: uppercase;
           color: var(--groupc-main);
         }
@@ -272,10 +275,10 @@
 
         .gif-wrapper {
           position: relative;
-          border-radius: 1rem;
+          border-radius: 0.5rem;
           overflow: hidden;
           width: 100%;
-          height: 175px;
+          height: rem(175);
 
           box-shadow:
             0 6px 16px rgb(0 0 0 / 0.25);
@@ -307,11 +310,10 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         backdrop-filter: blur(4px);
         padding: 1.5rem;
         background: rgb(var(--groupr-main) / 0.2);
-
         box-shadow:
           /* outside depth */
           0 8px 24px rgb(0 0 0 / 0.15),
@@ -326,10 +328,10 @@
       .row {
         display: flex;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         align-items: center;
         justify-content: space-between;
-        font-size: 10px;
+        font-size: rem(10);
         color: var(--color-light);
         gap: 1.5rem;
 
@@ -344,7 +346,7 @@
         }
 
         .value {
-          font-size: 12px;
+          font-size: rem(12);
           color: var(--groupc-main);
         }
       }
@@ -352,14 +354,13 @@
 
     .appearance {
       flex: 1;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
       border: 1px solid #000;
       backdrop-filter: blur(4px);
       padding: 1rem;
       background: linear-gradient(to bottom right, rgb(var(--groupr-main) / 0.2), rgb(var(--groupr-accent) / 0.2));
       display: flex;
       gap: 1rem;
-
       box-shadow:
         /* outside depth */
         0 8px 24px rgb(0 0 0 / 0.15),
@@ -389,8 +390,8 @@
           }
 
           span {
-            font-size: 12px;
-            letter-spacing: 1px;
+            font-size: rem(12);
+            letter-spacing: rem(1);
             text-transform: uppercase;
             color: var(--groupc-main);
           }
@@ -400,12 +401,12 @@
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           text-transform: uppercase;
 
           .label {
             color: #999;
-            font-size: 10px;
+            font-size: rem(10);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -420,15 +421,15 @@
 
           .list {
             width: 100%;
-            height: 136px;
+            height: rem(136);
             overflow-y: auto;
             text-transform: none;
-            font-size: 14px;
+            font-size: rem(14);
             line-height: 1.55;
           }
 
           .value {
-            font-size: 12px;
+            font-size: rem(12);
             color: var(--groupc-main);
             text-align: right;
           }
@@ -436,14 +437,13 @@
       }
 
       .avatar-holder {
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         border: 1px solid #000;
         backdrop-filter: blur(4px);
         padding: 1rem;
         line-height: 1.55;
         background: rgb(0 0 0 / .2);
-        width: 270px;
-
+        width: rem(270);
         box-shadow:
           /* outside depth */
           0 8px 24px rgb(var(--rgb-dark) / 0.05),
@@ -461,8 +461,7 @@
           width: 100%;
           background-size: cover;
           background-image: url('https://i.pinimg.com/1200x/35/93/47/359347657af157cd8f7ac0ac13480d17.jpg');
-          height: 420px;
-
+          height: rem(420);
           box-shadow:
             0 6px 16px rgb(0 0 0 / 0.25);
 
@@ -498,14 +497,13 @@
 
     .familial {
       flex: 1;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
       border: 1px solid #000;
       backdrop-filter: blur(4px);
       padding: 1rem;
       background: linear-gradient(to bottom right, rgb(var(--groupr-main) / 0.2), rgb(var(--groupr-accent) / 0.2));
       display: flex;
       gap: 1rem;
-
       box-shadow:
         /* outside depth */
         0 8px 24px rgb(0 0 0 / 0.15),
@@ -522,19 +520,19 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        height: 390px;
+        height: rem(390);
         overflow-y: auto;
 
         .row {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           text-transform: uppercase;
 
           .label {
             color: #999;
-            font-size: 10px;
+            font-size: rem(10);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -548,7 +546,7 @@
           }
 
           .value {
-            font-size: 12px;
+            font-size: rem(12);
             color: var(--groupc-main);
             text-align: right;
           }
@@ -562,11 +560,10 @@
         padding: 1rem;
         line-height: 1.55;
         background: rgb(0 0 0 / .2);
-        width: 190px;
+        width: rem(190);
         display: flex;
         flex-direction: column;
         gap: 1rem;
-
         box-shadow:
           /* outside depth */
           0 8px 24px rgb(var(--rgb-dark) / 0.05),
@@ -582,7 +579,7 @@
           border-radius: 0.5rem;
           overflow: hidden;
           width: 100%;
-          height: 180px;
+          height: rem(180);
           box-shadow:
             0 6px 16px rgb(0 0 0 / 0.25);
 
@@ -611,13 +608,13 @@
     }
 
     .intimacy {
-      width: 445px;
+      width: rem(445);
       display: flex;
       flex-direction: column;
       gap: 1rem;
 
       .ooc {
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         border: 1px solid #000;
         backdrop-filter: blur(4px);
         padding: 1rem;
@@ -628,7 +625,6 @@
         flex-direction: column;
         gap: 0.5rem;
         flex: 1;
-
         box-shadow:
           /* outside depth */
           0 8px 24px rgb(var(--rgb-dark) / 0.05),
@@ -643,9 +639,9 @@
       .row {
         display: flex;
         width: 100%;
-        font-size: 12px;
+        font-size: rem(12);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         align-items: center;
         gap: 1rem;
 
@@ -675,10 +671,10 @@
 
         .gif-wrapper {
           position: relative;
-          border-radius: 1rem;
+          border-radius: 0.5rem;
           overflow: hidden;
           width: 100%;
-          height: 125px;
+          height: rem(125);
 
           box-shadow:
             0 6px 16px rgb(0 0 0 / 0.25);
@@ -713,9 +709,9 @@
         gap: 0.25rem;
 
         .status {
-          font-size: 14px;
+          font-size: rem(14);
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           color: #999;
         }
 
@@ -723,7 +719,7 @@
           font-family: var(--font-display);
           text-transform: uppercase;
           color: var(--groupc-main);
-          font-size: 36px;
+          font-size: rem(36);
           font-weight: 700;
           text-shadow:
             0 0 6px rgb(var(--groupr-main) / 80%),
@@ -756,7 +752,7 @@
     }
 
     .rel-card {
-      width: 343px;
+      width: rem(343);
       border-radius: 0.5rem;
       border: 1px solid #000;
       backdrop-filter: blur(4px);
@@ -765,7 +761,6 @@
       display: flex;
       gap: 1rem;
       align-items: center;
-
       box-shadow:
         /* outside depth */
         0 8px 24px rgb(0 0 0 / 0.15),
@@ -783,15 +778,15 @@
 
         a {
           font-family: var(--font-heading);
-          font-size: 18px;
-          letter-spacing: 1px;
+          font-size: rem(18);
+          letter-spacing: rem(1);
           text-transform: uppercase;
           display: block;
           color: var(--groupc-main);
         }
 
         .rel-label {
-          font-size: 12px;
+          font-size: rem(12);
           text-transform: uppercase;
           color: #666;
         }
@@ -801,9 +796,8 @@
         position: relative;
         border-radius: 0.5rem;
         overflow: hidden;
-        flex: 0 0 100px;
-        height: 100px;
-
+        flex: 0 0 rem(100);
+        height: rem(100);
         box-shadow:
           0 6px 16px rgb(0 0 0 / 0.25);
 
@@ -820,8 +814,8 @@
         }
 
         img {
-          width: 100px;
-          height: 100px;
+          width: rem(100);
+          height: rem(100);
           object-fit: cover;
           border-radius: 0.5rem;
           border: 1px solid var(--color-dark);

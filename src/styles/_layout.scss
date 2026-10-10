@@ -1,5 +1,7 @@
 @use "variables" as *;
 
+@use "helpers" as *;
+
 html,
 body {
   margin: 0;
@@ -66,18 +68,16 @@ img[src=""] {
 }
 
 .idx .floaty-mcfloat {
-  margin-top: 2rem;
-
   .refresh-recent {
     display: none;
   }
 }
 
 .floaty-mcfloat {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   width: 100%;
   background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(rem(4));
   border: 1px solid #000;
   padding: 1rem;
   margin-top: 0;
@@ -95,9 +95,9 @@ img[src=""] {
   .header {
     display: flex;
     gap: .5rem;
-    font-size: 10px;
+    font-size: rem(10);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
 
     span {
       color: #666;
@@ -107,8 +107,8 @@ img[src=""] {
 
       &::after {
         content: "";
-        width: 35px;
-        height: 1px;
+        width: rem(35);
+        height: rem(1);
         background-color: var(--color-dark);
       }
     }
@@ -120,8 +120,8 @@ img[src=""] {
       font-family: "DejaVu Sans", "Segoe UI Symbol", sans-serif;
       color: var(--color-light);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 12px;
+      letter-spacing: rem(1);
+      font-size: rem(12);
       cursor: pointer;
 
       .is-refreshing {
@@ -137,7 +137,7 @@ img[src=""] {
   .separator {
     width: 100%;
     margin: 1.5rem auto;
-    height: 1px;
+    height: rem(1);
     background-image: linear-gradient(to right, rgb(var(--rgb-dark) / 0.1), rgb(var(--rgb-dark) / 0.6), rgb(var(--rgb-dark) / 0.1));
   }
 
@@ -151,7 +151,7 @@ img[src=""] {
       position: relative;
       border-radius: 0.5rem;
       overflow: hidden;
-      width: 103px;
+      width: rem(103);
       background-size: cover;
       background-image: url('https://i.pinimg.com/1200x/35/93/47/359347657af157cd8f7ac0ac13480d17.jpg');
       aspect-ratio: 1;
@@ -172,7 +172,7 @@ img[src=""] {
       }
 
       img {
-        width: 103px;
+        width: rem(103);
         height: 100%;
         object-fit: cover;
         border-radius: .5rem;
@@ -190,14 +190,14 @@ img[src=""] {
       gap: 0.5rem;
 
       a {
-        border-radius: 8px;
+        border-radius: rem(8);
         background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
         backdrop-filter: blur(4px);
         border: 1px solid #000;
-        padding: 6px 12px;
-        font-size: 10px;
+        padding: rem(6) rem(12);
+        font-size: rem(10);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         transition: all 0.1s 0.15s ease;
 
         box-shadow:
@@ -238,7 +238,7 @@ img[src=""] {
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 1rem;
-    max-height: 350px;
+    max-height: rem(350);
     overflow-y: auto;
 
     .rt-item {
@@ -248,14 +248,14 @@ img[src=""] {
 
       .rt-topic {
         width: fit-content;
-        border-radius: 8px;
+        border-radius: rem(8);
         background: linear-gradient(to bottom right, rgb(var(--rgb-accent3) / 0.2), rgb(var(--rgb-accent1) / 0.2));
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(rem(4));
         border: 1px solid #000;
-        padding: 4px 8px;
-        font-size: 11px;
+        padding: rem(4) rem(8);
+        font-size: rem(10);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         transition: all 0.1s 0.15s ease;
 
         box-shadow:
@@ -276,7 +276,7 @@ img[src=""] {
         }
 
         &:active {
-          transform: translateY(1px);
+          transform: translateY(rem(1));
 
           box-shadow:
             0 4px 12px rgb(0 0 0 / 0.15),
@@ -289,8 +289,8 @@ img[src=""] {
         display: flex;
         align-items: center;
         gap: 1rem;
-        font-size: 10px;
-        letter-spacing: 1px;
+        font-size: rem(10);
+        letter-spacing: rem(1);
         text-transform: uppercase;
         color: #999;
 
@@ -301,8 +301,8 @@ img[src=""] {
 
       .rt-author {
         color: var(--color-accent1);
-        font-size: 10px;
-        letter-spacing: 1px;
+        font-size: rem(10);
+        letter-spacing: rem(1);
         text-transform: uppercase;
 
       }
@@ -325,7 +325,7 @@ img[src=""] {
   .stlite {
     margin-inline: auto;
     width: min(100% - 2rem, 1440px);
-    margin-top: 24px;
+    margin-top: rem(24);
 
     .nstart {
       color: #666;
@@ -336,13 +336,13 @@ img[src=""] {
     }
 
     .header-top {
-      border-radius: 8px;
+      border-radius: rem(8);
       width: 100%;
       background: rgb(var(--rgb-dark) / 0.4);
       backdrop-filter: blur(4px);
       border: 1px solid var(--color-dark);
-      padding: 12px 20px;
-      font-size: 12px;
+      padding: rem(12) rem(20);
+      font-size: rem(12);
       display: flex;
       justify-content: space-between;
 
@@ -365,16 +365,17 @@ img[src=""] {
         list-style: none;
         counter-reset: item;
         display: flex;
-        gap: 16px;
+        gap: 1rem;
         align-items: center;
+
 
         li {
           counter-increment: item;
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: rem(8);
 
           a {
             transition: all 0.1s 0.1s ease;
@@ -392,10 +393,10 @@ img[src=""] {
 
           &::after {
             content: "";
-            width: 35px;
-            height: 1px;
+            width: rem(35);
+            height: rem(1);
             background: var(--color-dark);
-            margin-left: 8px;
+            margin-left: rem(8);
           }
 
           &:last-of-type {
@@ -408,15 +409,37 @@ img[src=""] {
 
       .quick-links {
         display: flex;
-        gap: 16px;
+        gap: 1rem;
         align-items: center;
+
+        .cmd {
+          display: flex;
+          gap: 0.25rem;
+          align-items: center;
+          color: var(--color-light);
+          font-family: var(--font-body);
+          text-transform: uppercase;
+          letter-spacing: rem(1);
+          font-size: rem(12);
+          padding: 0.25rem 0.5rem;
+          color: #666;
+          border-radius: 0.5rem;
+          background: rgb(0 0 0 / 0.2);
+          border: 1px solid rgb(0 0 0 / .8);
+          cursor: pointer;
+
+          .keycode {
+            display: grid;
+            place-items: center;
+          }
+        }
 
         a {
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: rem(1);
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 0.5rem;
           color: #666;
           transition: all 0.1s 0.1s ease;
 
@@ -427,10 +450,10 @@ img[src=""] {
 
           &::after {
             content: "";
-            width: 35px;
-            height: 1px;
+            width: rem(35);
+            height: rem(1);
             background: var(--color-dark);
-            margin-left: 8px;
+            margin-left: rem(8);
           }
 
           &:last-of-type {
@@ -444,8 +467,8 @@ img[src=""] {
 
     .header-body {
       width: 100%;
-      padding: 45px;
-      height: 800px;
+      padding: rem(45);
+      height: rem(800);
       display: grid;
       place-items: center;
 
@@ -453,44 +476,43 @@ img[src=""] {
         font-family: var(--font-heading);
         text-transform: uppercase;
         color: var(--color-light);
-        font-size: 92px;
+        font-size: rem(92);
         font-weight: 400;
-        letter-spacing: 4px;
+        letter-spacing: rem(4);
         display: flex;
         flex-flow: row nowrap;
-        gap: 40px;
+        gap: rem(40);
         align-items: center;
 
         &::before {
           content: "";
           display: block;
-          width: 310px;
-          height: 1px;
-          border-radius: 2px;
+          width: rem(310);
+          height: rem(1);
           background: rgb(var(--rgb-light) / 0.3);
         }
       }
 
       .stlite-subtitle {
-        font-size: 14px;
+        font-size: rem(14);
         color: var(--color-accent1);
         text-transform: lowercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
         font-weight: 400;
         text-align: center;
       }
     }
 
     .header-footer {
-      border-radius: 8px;
+      border-radius: 0.5rem;
       width: 100%;
       background: rgb(0 0 0 / 0.4);
       backdrop-filter: blur(4px);
       border: 1px solid #000;
-      padding: 12px 20px;
-      font-size: 10px;
+      padding: rem(12) rem(20);
+      font-size: rem(10);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: rem(1);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -519,8 +541,8 @@ img[src=""] {
     }
 
     .strlite-content {
-      margin: 75px 0;
-      margin-bottom: 24px;
+      margin: rem(75) 0;
+      margin-bottom: rem(24);
       width: 100%;
 
       .split-layout {
@@ -553,10 +575,10 @@ img[src=""] {
   margin: 0;
   position-area: bottom span-right;
   position-try-fallbacks: flip-block, flip-inline;
-  margin-top: 8px;
+  margin-top: rem(8);
   background: transparent;
   border: none;
-  width: 320px;
+  width: rem(320);
 
   .popover-content {
     border-radius: 0.5rem;
@@ -566,7 +588,7 @@ img[src=""] {
     background: rgb(var(--rgb-dark-contrast) / .8);
     color: var(--color-light);
     display: flex;
-    font-size: 14px;
+    font-size: rem(14);
     flex-direction: column;
     box-shadow:
       /* outside depth */
@@ -589,12 +611,12 @@ img[src=""] {
   aspect-ratio: 1;
   color: #999;
   border: 1px solid transparent;
-  border-bottom: 1px dashed var(--color-light);
+  border-bottom: rem(1) dashed var(--color-light);
   background: transparent;
   text-transform: uppercase;
   font-family: var(--font-body);
-  letter-spacing: 1px;
-  font-size: 12px;
+  letter-spacing: rem(1);
+  font-size: rem(12);
   color: inherit;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -607,10 +629,10 @@ img[src=""] {
   margin: 0;
   position-area: bottom span-left;
   position-try-fallbacks: flip-block, flip-inline;
-  margin-top: 8px;
+  margin-top: rem(8);
   background: transparent;
   border: none;
-  width: 320px;
+  width: rem(320);
 
   .emoji-content {
     border-radius: 0.5rem;
@@ -642,8 +664,8 @@ img[src=""] {
       .emoji-search {
         width: 100%;
         padding: 0.5rem;
-        font-size: 12px;
-        letter-spacing: 1px;
+        font-size: rem(12);
+        letter-spacing: rem(1);
         background: transparent;
         border: transparent;
         color: var(--color-light);
@@ -651,7 +673,7 @@ img[src=""] {
 
         &:focus-visible,
         &:focus {
-          outline: 1px solid var(--color-accent3);
+          outline: rem(1) solid var(--color-accent3);
         }
       }
     }
@@ -664,8 +686,8 @@ img[src=""] {
       border: 1px solid transparent;
       text-transform: uppercase;
       font-family: var(--font-body);
-      letter-spacing: 1px;
-      font-size: 16px;
+      letter-spacing: rem(1);
+      font-size: 1rem;
       color: inherit;
       border-radius: 0.5rem;
       cursor: pointer;
@@ -678,7 +700,7 @@ img[src=""] {
 
       &:focus-visible,
       &:focus {
-        outline: 1px solid var(--color-accent3);
+        outline: rem(1) solid var(--color-accent3);
       }
     }
 
@@ -690,8 +712,8 @@ img[src=""] {
       border: 1px solid transparent;
       text-transform: uppercase;
       font-family: var(--font-body);
-      letter-spacing: 1px;
-      font-size: 16px;
+      letter-spacing: rem(1);
+      font-size: rem(16);
       color: inherit;
       border-radius: 0.5rem;
       cursor: pointer;
@@ -703,7 +725,7 @@ img[src=""] {
       margin-top: 0.5rem;
       grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
       gap: 0.25rem;
-      max-height: 300px;
+      max-height: rem(300);
       align-items: start;
       overflow-y: auto;
     }
@@ -724,8 +746,8 @@ img[src=""] {
     align-items: center;
 
     .md-sep {
-      width: 1px;
-      height: 20px;
+      width: rem(1);
+      height: rem(20);
       background: var(--color-dark);
     }
   }
@@ -735,7 +757,7 @@ img[src=""] {
     border: 1px solid transparent;
     text-transform: uppercase;
     font-family: var(--font-body);
-    letter-spacing: 1px;
+    letter-spacing: rem(1);
     color: inherit;
     border-radius: 0.5rem;
     cursor: pointer;
