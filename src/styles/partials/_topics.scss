@@ -35,7 +35,7 @@
       letter-spacing: rem(1);
 
       .topic-type {
-        color: #999;
+        color: var(--color-zinc);
       }
 
       .topic-counts {
@@ -55,7 +55,7 @@
             content: "";
             width: 35px;
             height: 1px;
-            background: #666;
+            background: var(--color-stone);
           }
         }
       }
@@ -97,7 +97,7 @@
       text-transform: uppercase;
       letter-spacing: rem(1);
       font-size: rem(10);
-      color: #999;
+      color: var(--color-zinc);
     }
   }
 
@@ -108,7 +108,7 @@
     font-size: rem(10);
     text-transform: uppercase;
     letter-spacing: rem(1);
-    color: #666;
+    color: var(--color-stone);
 
     .date {
       display: flex;
@@ -118,7 +118,7 @@
       &::after {
         content: "";
         width: 35px;
-        background: #666;
+        background: var(--color-stone);
         height: 1px;
       }
     }

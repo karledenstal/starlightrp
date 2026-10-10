@@ -66,7 +66,7 @@ form {
 
     &::before {
       content: "";
-      background: #666;
+      background: var(--color-stone);
       width: 35px;
       height: 1px;
     }
@@ -272,7 +272,7 @@ form {
     font-size: rem(12);
     text-transform: uppercase;
     letter-spacing: rem(1);
-    color: #666;
+    color: var(--color-stone);
 
     a {
       span {
@@ -497,7 +497,7 @@ form {
             display: block;
             margin-top: 0.5rem;
             margin-bottom: 1rem;
-            color: #999;
+            color: var(--color-zinc);
           }
         }
 
@@ -514,7 +514,7 @@ form {
           a {
             &::before {
               content: "POSTED IN ";
-              color: #999;
+              color: var(--color-zinc);
             }
           }
         }
@@ -529,7 +529,7 @@ form {
 
           &::before {
             content: "STARTED BY ";
-            color: #999;
+            color: var(--color-zinc);
           }
         }
 
@@ -542,7 +542,7 @@ form {
 
           &::after {
             content: " REPLIES";
-            color: #999;
+            color: var(--color-zinc);
           }
         }
 
@@ -555,7 +555,7 @@ form {
 
           &::after {
             content: " VIEWS";
-            color: #999;
+            color: var(--color-zinc);
           }
         }
 
@@ -566,7 +566,7 @@ form {
 
           font-size: 0.75rem;
           text-align: right;
-          color: #999;
+          color: var(--color-zinc);
 
           a[href*="showuser="] {
             color: var(--color-accent2) !important;
@@ -757,7 +757,7 @@ td.darkrow2 {
 }
 
 .topic-desc {
-  color: #666;
+  color: var(--color-stone);
 }
 
 .topic-title-space {
@@ -957,7 +957,7 @@ input[type=reset] {
 
   &::before {
     content: "";
-    background: #666;
+    background: var(--color-stone);
     width: 35px;
     height: 1px;
   }
@@ -1219,7 +1219,7 @@ img.attach {
 
       >h3 {
         margin: 0;
-        color: #999;
+        color: var(--color-zinc);
         font-size: var(--font-body);
         text-transform: uppercase;
         letter-spacing: rem(1);
@@ -1232,7 +1232,7 @@ img.attach {
           content: "";
           flex: 1;
           height: 1px;
-          background: #666;
+          background: var(--color-stone);
         }
       }
     }
@@ -1253,7 +1253,7 @@ img.attach {
             font-size: rem(10);
             letter-spacing: rem(1);
             text-transform: uppercase;
-            color: #666;
+            color: var(--color-stone);
             font-weight: 400;
           }
         }

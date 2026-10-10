@@ -100,7 +100,7 @@ img[src=""] {
     letter-spacing: rem(1);
 
     span {
-      color: #666;
+      color: var(--color-stone);
       display: flex;
       align-items: center;
       gap: .5rem;
@@ -292,7 +292,7 @@ img[src=""] {
         font-size: rem(10);
         letter-spacing: rem(1);
         text-transform: uppercase;
-        color: #999;
+        color: var(--color-zinc);
 
         &::after {
           content: "//"
@@ -328,7 +328,7 @@ img[src=""] {
     margin-top: rem(24);
 
     .nstart {
-      color: #666;
+      color: var(--color-stone);
 
       &.sep {
         margin: 0 0.5rem;
@@ -388,7 +388,7 @@ img[src=""] {
 
           &::before {
             content: "0" counter(item);
-            color: #666;
+            color: var(--color-stone);
           }
 
           &::after {
@@ -422,7 +422,7 @@ img[src=""] {
           letter-spacing: rem(1);
           font-size: rem(12);
           padding: 0.25rem 0.5rem;
-          color: #666;
+          color: var(--color-stone);
           border-radius: 0.5rem;
           background: rgb(0 0 0 / 0.2);
           border: 1px solid rgb(0 0 0 / .8);
@@ -440,7 +440,7 @@ img[src=""] {
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          color: #666;
+          color: var(--color-stone);
           transition: all 0.1s 0.1s ease;
 
           &:hover {
@@ -530,7 +530,7 @@ img[src=""] {
       .designation {
         x {
           display: inline-block;
-          color: #999;
+          color: var(--color-zinc);
         }
 
         y {
@@ -609,7 +609,7 @@ img[src=""] {
 
 .field-help {
   aspect-ratio: 1;
-  color: #999;
+  color: var(--color-zinc);
   border: 1px solid transparent;
   border-bottom: rem(1) dashed var(--color-light);
   background: transparent;

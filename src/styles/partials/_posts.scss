@@ -30,7 +30,7 @@
     .author {
       display: flex;
       gap: 0.5rem;
-      color: #999;
+      color: var(--color-zinc);
       align-items: center;
       text-transform: uppercase;
       letter-spacing: rem(1);
@@ -45,7 +45,7 @@
           content: "";
           width: 25px;
           height: 1px;
-          background: #666;
+          background: var(--color-stone);
         }
       }
 
@@ -279,7 +279,7 @@
           &::before {
             height: 15px;
             width: 1px;
-            background: #999;
+            background: var(--color-zinc);
             content: "";
             display: none;
           }
@@ -293,7 +293,7 @@
       }
 
       .label {
-        color: #999;
+        color: var(--color-zinc);
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -378,7 +378,7 @@
           text-transform: uppercase;
           letter-spacing: rem(1);
           font-size: rem(12);
-          color: #999;
+          color: var(--color-zinc);
         }
 
         .rel-partner {
