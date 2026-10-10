@@ -749,3 +749,30 @@ img[src=""] {
     transform: rotate(360deg);
   }
 }
+
+@include down(md) {
+  .floaty-mcfloat {
+    display: none;
+  }
+
+  #starlight {
+    .stlite {
+
+      .header-body,
+      .header-top,
+      .header-footer {
+        display: none;
+      }
+
+      .strlite-content {
+        .split-layout {
+          grid-template-columns: 1fr;
+
+          .strail {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

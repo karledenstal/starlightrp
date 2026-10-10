@@ -334,3 +334,72 @@
     }
   }
 }
+
+@include down(md) {
+  .boards-wrapper {
+    .board-stats {
+      .stats-area {
+        .onlines {
+          .header {
+            .prefix {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .board {
+      padding: 0.5rem;
+
+      .board-image {
+        display: none;
+      }
+
+      .board-area {
+        .board-status {
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .last-poster-av {
+            display: none;
+          }
+
+          .last-poster-stats {
+            align-items: center;
+            gap: 0.25rem;
+
+            .stat-item {
+              grid-template-columns: 1fr;
+
+              &:first-of-type {
+                color: var(--color-zinc);
+              }
+
+              &:last-of-type {
+                font-size: rem(14);
+              }
+
+              .sep,
+              span {
+                display: none;
+              }
+            }
+
+            .latest-topic {
+              margin-top: 0;
+            }
+          }
+        }
+
+        .board-info {
+          .board-title {
+            .title-href {
+              font-size: rem(24);
+            }
+          }
+        }
+      }
+    }
+  }
+}

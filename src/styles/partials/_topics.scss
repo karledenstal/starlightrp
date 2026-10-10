@@ -119,3 +119,27 @@
     }
   }
 }
+
+@include down(md) {
+  .str-topic {
+    padding: 0.5rem;
+
+    .topic-authors {
+      flex-direction: column;
+
+      .topic-starter {
+        display: none;
+      }
+
+      .topic-poster {
+        flex-direction: column;
+
+        .date {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

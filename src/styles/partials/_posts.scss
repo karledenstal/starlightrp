@@ -434,3 +434,29 @@
     }
   }
 }
+
+@include down(md) {
+  .ST .maintitle {
+    flex-direction: column;
+
+    .topic-title {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .strlite-post {
+    padding: 0.5rem;
+
+    .post-area {
+      .post-content {
+        padding: 0.5rem;
+      }
+    }
+
+    .miniprofile {
+      display: none;
+    }
+  }
+}
