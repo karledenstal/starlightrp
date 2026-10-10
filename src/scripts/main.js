@@ -121,17 +121,24 @@ $(function () {
 });
 
 $(function () {
-  const $cell = $('input[name="enableemo"]').closest("td");
+  const $row = $("#post-options");
+  if (!$row.length) return;
 
-  $cell.find('input[name="enableemo"]').remove();
-  $cell.find('input[name="enablesig"]').remove();
+  const $cell = $row.find("td.pformright");
+  const $track = $cell.find('input[name="enabletrack"]');
 
-  $cell.html(`
-  <label>
-    <input type="checkbox" name="enabletrack" value="1">
-    Notify me of replies
-  </label>
-`);
+  // No tracking option? Remove the entire row.
+  if (!$track.length) {
+    $row.remove();
+    return;
+  }
+
+  // Preserve the actual Jcink checkbox.
+  $track.detach();
+
+  $cell
+    .empty()
+    .append($("<label>").append($track).append(" Notify me of replies"));
 });
 
 $(function () {
