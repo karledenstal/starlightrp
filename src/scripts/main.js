@@ -13,6 +13,34 @@ $(function () {
 });
 
 $(function () {
+  const helpFields = {
+    1: "**Alias**\n\nEnter your character's full name.",
+    3: "Describe your character's personality using comma-separated traits.",
+  };
+
+  for (const [id, content] of Object.entries(helpFields)) {
+    const $button = $("<button>", {
+      type: "button",
+      class: "field-help",
+      text: "?",
+    }).attr("data-content", content);
+
+    $(`#field_${id} .pformleft`).append($button);
+  }
+
+  $(document).on("click", ".field-help", function (e) {
+    const content = $(this).attr("data-content");
+
+    console.log("content", content);
+
+    const $popover = $("#help-popup");
+
+    $popover.find(".popover-content").html(marked.parse(content));
+    $popover[0].showPopover({ source: this });
+  });
+});
+
+$(function () {
   const $row = $("#code-buttons");
   const $header = $("#code-buttons-header");
 
@@ -63,8 +91,8 @@ $(function () {
 
   $row.on("click", "[data-md]", function () {
     console.log("clicked");
-    //const textarea = document.forms["REPLIER"]?.elements["Post"];
-    //if (!textarea) return;
+    const textarea = document.forms["REPLIER"]?.elements["Post"];
+    if (!textarea) return;
 
     if (this.dataset.md === "emoji") {
       console.log("emoji");

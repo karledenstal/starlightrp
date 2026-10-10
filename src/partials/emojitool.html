@@ -168,6 +168,8 @@
       renderEmojis(this.value);
     });
 
-    init();
+    if ($("body").hasClass("Post")) {
+      init();
+    }
   });
 </script>

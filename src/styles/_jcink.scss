@@ -25,6 +25,14 @@ form {
   display: none;
 }
 
+.Post {
+  form {
+    br {
+      display: none;
+    }
+  }
+}
+
 .ST {
   a[name="top"] {
     display: none;

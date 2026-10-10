@@ -547,6 +547,60 @@ img[src=""] {
   }
 }
 
+#help-popup {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  position-area: bottom span-right;
+  position-try-fallbacks: flip-block, flip-inline;
+  margin-top: 8px;
+  background: transparent;
+  border: none;
+  width: 320px;
+
+  .popover-content {
+    border-radius: 0.5rem;
+    border: 1px solid #000;
+    backdrop-filter: blur(4px);
+    padding: 0.5rem;
+    background: rgb(var(--rgb-dark-contrast) / .8);
+    color: var(--color-light);
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    box-shadow:
+      /* outside depth */
+      0 8px 24px rgb(0 0 0 / 0.15),
+
+      /* bright upper/left inner edge */
+      inset 1px 1px 0 rgb(90 90 90 / 0.35),
+
+      /* darker lower/right inner edge */
+      inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+    strong,
+    b {
+      color: var(--color-accent1);
+    }
+  }
+}
+
+.field-help {
+  aspect-ratio: 1;
+  color: #999;
+  border: 1px solid transparent;
+  border-bottom: 1px dashed var(--color-light);
+  background: transparent;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: inherit;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
 #emojitool {
   position: fixed;
   inset: auto;
