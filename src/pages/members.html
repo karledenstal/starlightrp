@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <include src="src/partials/head.html"></include>
+
+  <body class="Members">
+    <div id="tsparticles"></div>
+    <div id="starlight">
+      <div class="stlite">
+        <include src="src/partials/header.html"></include>
+        <div class="strlite-content">
+          <div class="split-layout">
+            <div class="boards-wrapper">
+              <div class="strlite-members">
+                <div class="section-header">
+                  <span class="label">Registry</span>
+                  <span class="value">Characters</span>
+                </div>
+
+                <include src="src/partials/memberfilter.html"></include>
+
+                <div class="memberlist">
+                  <include
+                    src="src/partials/memberrow.html"
+                    locals='{
+                      "gid": "6",
+                      "fullName": "Cassian Valdemar Crane",
+                      "displayName": "Cassian Crane",
+                      "img": "https://64.media.tumblr.com/3a85e9c95fde2e3e06d78166fe9f2969/839e19db82dd1199-0a/s400x600/d477811edad8599f1f81588cc882d14490d081af.gifv",
+                      "age": "45",
+                      "pronouns": "He/him",
+                      "fc": "Sebastian Stan",
+                      "group": "Human"
+                    }'
+                  ></include>
+                  <include
+                    src="src/partials/memberrow.html"
+                    locals='{
+                      "gid": "8",
+                      "fullName": "Arden St.Clair-Moreau",
+                      "displayName": "Arden St.Clair-Moreau",
+                      "img": "https://64.media.tumblr.com/07ddb4598c49ec3997f6240425d31c1c/b6fbfb9d38209845-cf/s540x810/8aec44bde6ca1d23712cf435cca067070b820348.gifv",
+                      "age": "28",
+                      "pronouns": "She/they",
+                      "fc": "Hunter Schafer",
+                      "group": "Biosynt-7B"
+                    }'
+                  ></include>
+                  <include
+                    src="src/partials/memberrow.html"
+                    locals='{
+                      "gid": "9",
+                      "fullName": "Cleo Desirée Søderberg-Hawthorne",
+                      "displayName": "Cleo Søderberg-Hawthorne",
+                      "img": "https://64.media.tumblr.com/1293c30515ab648eff567c9ad2df0daa/49855ebe3165a192-79/s400x600/179006f4e7890592afd8e54f7bdf27fc1bbbf561.gifv",
+                      "age": "28",
+                      "pronouns": "She/her",
+                      "fc": "Maggie Lindemann",
+                      "group": "Engineer"
+                    }'
+                  ></include>
+
+                  <div class="members-empty" style="display: none">
+                    <div class="info">
+                      <h2>
+                        <i>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-scan-square preview-icon"
+                          >
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                            <rect width="8" height="8" x="8" y="8" rx="1" />
+                          </svg>
+                        </i>
+                        Query complete // zero matches
+                      </h2>
+                      <span class="subtitle">
+                        No registry records match the selected parameters
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <include
+              src="src/partials/rail.html"
+              locals='{ "gid": "9" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        const $list = $(".memberlist");
+        $list.css("min-height", Math.min($list.outerHeight(), 700));
+
+        const $rows = $(".member-row");
+        const $buttons = $(".memberfilter [data-filter]");
+        const $search = $(".member-search");
+
+        const normalize = (value) =>
+          String(value || "")
+            .trim()
+            .toLowerCase();
+
+        function filterMembers() {
+          const search = normalize($search.val());
+          let matchCount = 0;
+
+          const filters = {};
+
+          $buttons.filter(".active").each(function () {
+            const key = $(this).data("filter");
+            const value = normalize($(this).attr("data-filter-value"));
+
+            (filters[key] ??= []).push(...value.split(",").map(normalize));
+          });
+
+          $rows.each(function () {
+            const $row = $(this);
+
+            const matchesFilters = Object.entries(filters).every(
+              ([key, values]) => {
+                const actual = normalize($row.attr(`data-${key}`));
+
+                if (key === "pronouns") {
+                  const pronouns = actual
+                    .split(/[\/&,\-]/)
+                    .map(normalize)
+                    .filter(Boolean);
+
+                  const standard = ["he", "him", "his", "she", "her", "hers"];
+
+                  return values.some((value) => {
+                    if (value === "other") {
+                      return pronouns.some(
+                        (pronoun) => !standard.includes(pronoun),
+                      );
+                    }
+
+                    return pronouns.includes(value);
+                  });
+                }
+
+                return values.includes(actual);
+              },
+            );
+
+            const searchable = [
+              "name",
+              "faceclaim",
+              "pronouns",
+              "group",
+              "affiliation",
+              "residence",
+              "player",
+            ]
+              .map((key) => normalize($row.attr(`data-${key}`)))
+              .join(" ");
+
+            const matchesSearch = searchable.includes(search);
+
+            const visible = matchesFilters && matchesSearch;
+
+            if (visible) matchCount++;
+
+            $row.stop(true, true)[visible ? "slideDown" : "slideUp"](200);
+          });
+          $(".members-empty")
+            .stop(true, true)
+            [matchCount === 0 ? "fadeIn" : "fadeOut"](200);
+        }
+
+        $buttons.on("click", function () {
+          $(this).toggleClass("active");
+          filterMembers();
+        });
+
+        $search.on("input", filterMembers);
+      });
+    </script>
+    <script type="module" src="../scripts/particles.js"></script>
+  </body>
+</html>

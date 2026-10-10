@@ -615,7 +615,13 @@ form {
   display: none;
 }
 
-#navstrip {}
+#navstrip {
+  a {
+    &:first-of-type {
+      color: var(--color-accent1);
+    }
+  }
+}
 
 /****************************************
    Topic View styles
