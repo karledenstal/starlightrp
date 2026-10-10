@@ -1,9 +1,12 @@
 @forward "variables";
 @forward "helpers";
+@use "jcink";
 @forward "layout";
 @forward "forum_images";
 
+@use "idx";
 @use "partials/topics";
 @use "partials/posts";
 @use "partials/profile";
 @use "partials/members";
+@use "partials/dialog";

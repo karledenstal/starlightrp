@@ -7,7 +7,7 @@
     "serve": "parcel serve src/pages/index.html",
     "build": "parcel build src/pages/*.html src/styles/jcink.scss src/styles/main.scss && npm run build:particles",
     "build:particles": "esbuild src/scripts/particles.js --bundle --minify --format=iife --outfile=dist/tsparticles.js",
-    "build:css": "parcel build src/styles/jcink.scss src/styles/main.scss --no-source-maps",
+    "build:css": "parcel build src/styles/starlight.scss --no-source-maps",
     "clean": "rm -rf .parcel-cache dist",
     "generate:fields": "node ./src/scripts/generate_fields.js",
     "release": "npm version patch && git push --follow-tags"
