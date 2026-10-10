@@ -11,15 +11,7 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  box-shadow:
-    /* outside depth */
-    0 8px 24px rgb(0 0 0 / 0.15),
-
-    /* bright upper/left inner edge */
-    inset 1px 1px 0 rgb(90 90 90 / 0.35),
-
-    /* darker lower/right inner edge */
-    inset -1px -1px 0 rgb(0 0 0 / 0.15);
+  box-shadow: var(--shadow-glass);
 
   .miniprofile {
     width: rem(270);
@@ -438,15 +430,7 @@
       flex-direction: column;
       gap: .5rem;
       flex: 1;
-      box-shadow:
-        /* outside depth */
-        0 8px 24px rgb(var(--rgb-dark) / 0.05),
-
-        /* bright upper/left inner edge */
-        inset 1px 1px 0 rgb(var(--rgb-light) / 0.15),
-
-        /* darker lower/right inner edge */
-        inset -1px -1px 0 rgb(var(--rgb-dark) / 0.05);
+      box-shadow: var(--shadow-glass);
     }
   }
 }

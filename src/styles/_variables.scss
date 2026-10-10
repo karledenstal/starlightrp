@@ -19,6 +19,16 @@
   --font-heading: "Bodoni Moda", serif;
   --font-body: "Space Mono", monospace;
   --font-display: "Iceland", sans-serif;
+
+  --shadow-glass:
+    0 8px 24px rgb(0 0 0 / 0.15),
+    inset 1px 1px 0 rgb(90 90 90 / 0.35),
+    inset -1px -1px 0 rgb(0 0 0 / 0.15);
+
+  --glass-hover:
+    0 12px 32px rgb(0 0 0 / 0.22),
+    inset 1px 1px 0 rgb(120 120 120 / 0.45),
+    inset -1px -1px 0 rgb(0 0 0 / 0.18);
 }
 
 .g,
