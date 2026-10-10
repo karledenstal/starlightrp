@@ -1,4 +1,4 @@
-name: Release CSS
+name: Release Artifacts
 
 on:
   push:

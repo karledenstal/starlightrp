@@ -11,7 +11,9 @@
     "build:css": "parcel build src/styles/starlight.scss --no-source-maps",
     "clean": "rm -rf .parcel-cache dist",
     "generate:fields": "node ./src/scripts/generate_fields.js",
-    "release": "npm version patch && git push --follow-tags"
+    "release": "npm version patch && git push --follow-tags",
+    "release:minor": "npm version minor && git push --follow-tags",
+    "release:major": "npm version major && git push --follow-tags"
   },
   "keywords": [],
   "author": "",
