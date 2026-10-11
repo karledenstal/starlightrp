@@ -2,7 +2,10 @@
 @use "helpers" as *;
 
 .boards-wrapper {
-  .cid-5 {
+
+  .cid-5,
+  .cid-2,
+  .cid-4 {
     .board-compact {
       display: flex;
     }
