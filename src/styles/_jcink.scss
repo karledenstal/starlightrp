@@ -106,6 +106,10 @@ form {
 
   div.pformstrip {
     display: none;
+
+    &:first-of-type {
+      display: flex;
+    }
   }
 
   .profile-section-header {
