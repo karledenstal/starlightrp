@@ -16,6 +16,58 @@
     letter-spacing: rem(1);
     text-transform: uppercase;
 
+    .charid {
+      cursor: pointer;
+      display: flex;
+      gap: 0.5rem;
+      font-size: rem(12);
+      border-radius: 0.5rem;
+      border: 1px solid #000;
+      background: rgb(0 0 0 / 0.4);
+      backdrop-filter: blur(1px);
+      align-items: center;
+      padding: rem(4) rem(8);
+      color: var(--color-light);
+      transition: color 100ms ease 150ms;
+
+      .copy-icon {
+        cursor: pointer;
+
+        .lucide-check {
+          display: none;
+        }
+
+        &.copied {
+          .lucide-copy {
+            display: none;
+          }
+
+          .lucide-check {
+            display: inline-block;
+            color: var(--color-success);
+          }
+        }
+      }
+
+      strong {
+        font-size: rem(12);
+        font-weight: 400;
+        color: var(--color-zinc);
+      }
+
+      i {
+        position: relative;
+        top: 1px;
+        transition: color 100ms ease 150ms;
+      }
+
+      &:hover {
+        i {
+          color: var(--groupc-main);
+        }
+      }
+    }
+
     .label {
       display: flex;
       gap: 1rem;

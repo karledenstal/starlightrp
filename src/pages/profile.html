@@ -18,7 +18,54 @@
               >
                 <div class="profile-header">
                   <div class="section-header">
-                    <span id="gameid" class="label">NBG-109</span>
+                    <span
+                      id="gameid"
+                      class="charid"
+                      title="Copy character id"
+                      data-copy="Cleo Søderberg-Hawthorne | Relationship | 9"
+                    >
+                      <strong>Character ID</strong> 9
+                      <i class="copy-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-copy preview-icon"
+                        >
+                          <rect
+                            width="14"
+                            height="14"
+                            x="8"
+                            y="8"
+                            rx="2"
+                            ry="2"
+                          />
+                          <path
+                            d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                          />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check preview-icon"
+                        >
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </i>
+                    </span>
                     <span class="value group">
                       Cleo Desirée Søderberg-Hawthorne
                     </span>
@@ -171,7 +218,7 @@
                       <div class="row">
                         <span class="label">DOB</span>
                         <div class="sep"></div>
-                        <p class="value">09.09.2087</p>
+                        <p class="value" data-dob="9/9/2080"></p>
                       </div>
                       <div class="row">
                         <span class="label">Origin</span>
@@ -352,6 +399,28 @@
         Cleo | gf | 3`;
 
       $(function () {
+        let copyTimeout;
+
+        $("#gameid").on("click", async function () {
+          const $icon = $(this).find(".copy-icon");
+
+          try {
+            await navigator.clipboard.writeText($(this).attr("data-copy"));
+
+            $icon.addClass("copied");
+
+            clearTimeout(copyTimeout);
+
+            copyTimeout = setTimeout(() => {
+              $icon.removeClass("copied");
+            }, 2000);
+          } catch (error) {
+            console.error("Copy failed:", error);
+          }
+        });
+      });
+
+      $(function () {
         $(".rating .active").each(function () {
           const duration = 3.5 + Math.random() * 2;
 
@@ -419,6 +488,96 @@
             "--orbit-duration": `${duration}s`,
           });
         }
+      });
+
+      $(function () {
+        function parseDOB(value) {
+          const input = value.trim();
+
+          const months = {
+            jan: 1,
+            january: 1,
+            feb: 2,
+            february: 2,
+            mar: 3,
+            march: 3,
+            apr: 4,
+            april: 4,
+            may: 5,
+            jun: 6,
+            june: 6,
+            jul: 7,
+            july: 7,
+            aug: 8,
+            august: 8,
+            sep: 9,
+            sept: 9,
+            september: 9,
+            oct: 10,
+            october: 10,
+            nov: 11,
+            november: 11,
+            dec: 12,
+            december: 12,
+          };
+
+          let day, month, year;
+
+          // 15.07.2080, 15-07-2080, 15/07/2080
+          const numeric = input.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/);
+
+          // 15 July 2080, 15 Jul 2080
+          const written = input.match(/^(\d{1,2})\s+([a-z]+)\s+(\d{4})$/i);
+
+          // 2080-07-15 (ISO format)
+          const iso = input.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+
+          if (numeric) {
+            [, day, month, year] = numeric;
+          } else if (written) {
+            day = written[1];
+            month = months[written[2].toLowerCase()];
+            year = written[3];
+          } else if (iso) {
+            [, year, month, day] = iso;
+          } else {
+            return null;
+          }
+
+          day = Number(day);
+          month = Number(month);
+          year = Number(year);
+
+          if (!month || month < 1 || month > 12) return null;
+
+          // Validate dates, including leap years
+          const date = new Date(0);
+          date.setFullYear(year, month - 1, day);
+
+          if (
+            date.getFullYear() !== year ||
+            date.getMonth() !== month - 1 ||
+            date.getDate() !== day
+          ) {
+            return null;
+          }
+
+          return [
+            String(day).padStart(2, "0"),
+            String(month).padStart(2, "0"),
+            String(year).padStart(4, "0"),
+          ].join(".");
+        }
+
+        // Format all DOB fields
+        $("[data-dob]").each(function () {
+          const $field = $(this);
+          const formatted = parseDOB($field.attr("data-dob") || "");
+
+          if (formatted) {
+            $field.text(formatted);
+          }
+        });
       });
     </script>
     <script type="module" src="../scripts/particles.js"></script>
