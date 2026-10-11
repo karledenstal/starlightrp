@@ -1,6 +1,6 @@
 {
   "name": "starlight",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "",
   "scripts": {
     "dev": "parcel src/pages/*.html",
