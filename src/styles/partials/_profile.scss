@@ -370,6 +370,19 @@
         color: var(--color-light);
         gap: 1.5rem;
 
+        .zodiac {
+          border-radius: 2px;
+          aspect-ratio: 1;
+          display: grid;
+          place-items: center;
+          padding: 3px;
+          box-shadow: var(--shadow-glass);
+          border: 1px solid #000;
+          background: rgb(var(--groupr-accent) / 0.8);
+          color: var(--color-light);
+          backdrop-filter: blur(1px);
+        }
+
         .label {
           color: var(--color-light);
         }
@@ -382,6 +395,8 @@
 
         .value {
           font-size: rem(12);
+          display: flex;
+          gap: 0.5rem;
           color: var(--groupc-main);
         }
       }
