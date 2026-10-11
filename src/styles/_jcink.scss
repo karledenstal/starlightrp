@@ -108,6 +108,19 @@ form {
     display: none;
   }
 
+  .profile-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: "";
+      width: 35px;
+      height: 1px;
+      background: var(--color-stone);
+    }
+  }
+
   tr[id*="field_"] {
     border-radius: 0.5rem;
     background: linear-gradient(to bottom, rgb(var(--rgb-dark) / 0.2), rgb(var(--rgb-dark-contrast) / 0.2));
