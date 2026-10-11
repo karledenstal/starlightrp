@@ -829,3 +829,89 @@
     }
   }
 }
+
+@include down(md) {
+  .strlite-profile {
+    .profile-header {
+      flex-direction: column;
+
+      .section-header {
+        flex-direction: column;
+      }
+
+      .profile-threads {
+        text-align: center;
+      }
+    }
+
+    .personality-section {
+      flex-direction: column;
+
+      .profile-img {
+        width: 100%;
+        aspect-ratio: 1;
+        height: auto;
+      }
+
+      .starchart {
+        padding: 0;
+        gap: 1.5rem;
+
+        .charted {
+          margin-left: 0;
+        }
+
+        .actualize {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .general-section {
+      flex-direction: column;
+
+      .basics {
+        width: 100%;
+
+        .composition {
+          padding: 0.75rem;
+        }
+      }
+
+      .appearance {
+        .avatar-holder {
+          display: none;
+        }
+      }
+    }
+
+    .famirel {
+      flex-direction: column;
+
+      .familial {
+        flex-direction: column;
+
+        .img-holder {
+          flex-direction: row;
+          width: 100%;
+        }
+      }
+
+      .intimacy {
+        width: 100%;
+      }
+    }
+
+    .orbit {
+      .orbit-track {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .rel-card {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
