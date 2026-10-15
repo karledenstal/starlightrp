@@ -42,6 +42,10 @@ $(function () {
           "data-index": index,
         });
 
+        if (entry.type === "character") {
+          $card.hide();
+        }
+
         $("<a>", {
           class: "entry-title",
           href: entry.url || "#",
@@ -76,12 +80,15 @@ $(function () {
   });
 
   $search.on("input", function () {
-    const results = new Set(searchEntries(searchIndex, $(this).val()));
+    const query = $(this).val().trim();
+    const results = new Set(searchEntries(searchIndex, query));
 
     $body.find(".result-card").each(function () {
       const $card = $(this);
       const entry = searchIndex[$card.data("index")];
-      const matches = results.has(entry);
+
+      const matches =
+        (query !== "" || entry.type === "lore") && results.has(entry);
 
       if (matches) {
         if (!$card.is(":visible")) {
