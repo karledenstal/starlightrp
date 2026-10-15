@@ -29,7 +29,7 @@ jobs:
         run: npm run build:css
 
       - name: Build JS
-        run: npm run build:markdown
+        run: npm run build:js
 
       - name: Publish compiled CSS to release branch
         env:
@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p /tmp/starlight-release
           cp dist/starlight.css /tmp/starlight-release/
-          cp dist/markdown.js /tmp/starlight-release/
+          cp dist/starlight.js /tmp/starlight-release/
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
