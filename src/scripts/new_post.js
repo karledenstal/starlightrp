@@ -45,17 +45,12 @@ $(function () {
     link: ["[", "](https://)"],
     quote: ["> ", ""],
     code: ["\`", "\`"],
+    image: ["![", "](https://)"],
   };
 
   $row.on("click", "[data-md]", function () {
-    console.log("clicked");
     const textarea = document.forms["REPLIER"]?.elements["Post"];
     if (!textarea) return;
-
-    if (this.dataset.md === "emoji") {
-      console.log("emoji");
-      return;
-    }
 
     const format = formats[this.dataset.md];
     if (!format) return;
@@ -65,9 +60,15 @@ $(function () {
     const end = textarea.selectionEnd;
     const selected = textarea.value.slice(start, end);
 
-    textarea.setRangeText(before + selected + after, start, end, "select");
+    // Insert Markdown
+    textarea.setRangeText(before + selected + after, start, end);
 
+    // Focus and position cursor
     textarea.focus();
+    textarea.setSelectionRange(
+      start + before.length,
+      start + before.length + selected.length,
+    );
   });
 });
 
