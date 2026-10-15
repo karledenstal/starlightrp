@@ -68,6 +68,7 @@ $(function () {
   $dialog.find(".dialog-close").on("click", () => dialog.close());
 
   $(document).on("keydown", function (e) {
+    if ($(e.target).is('textarea[name="Post"]')) return;
     if (e.ctrlKey && e.key.toLowerCase() === "k" && !e.repeat) {
       e.preventDefault();
       openStarlightDialog();

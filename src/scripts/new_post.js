@@ -70,6 +70,23 @@ $(function () {
       start + before.length + selected.length,
     );
   });
+
+  $(document.forms["REPLIER"]?.elements["Post"]).on("keydown", function (e) {
+    const shortcuts = {
+      b: "bold",
+      i: "italic",
+      k: "link",
+    };
+
+    if (!(e.ctrlKey || e.metaKey) || e.repeat) return;
+
+    const action = shortcuts[e.key.toLowerCase()];
+    if (!action) return;
+
+    e.preventDefault();
+
+    $row.find(`[data-md="${action}"]`).trigger("click");
+  });
 });
 
 $(function () {
