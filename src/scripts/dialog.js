@@ -155,6 +155,7 @@ function getCharacters() {
             title: name,
             type: "character",
             keywords: [
+              id,
               faceclaim,
               pronouns,
               group,
