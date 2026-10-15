@@ -48,7 +48,7 @@ $(function () {
 
         $("<a>", {
           class: "entry-title",
-          href: entry.url || "#",
+          href: `?act=Pages&pid=5?page=${entry.title.toLowerCase()}`,
           text: entry.title,
         }).appendTo($card);
 
